@@ -1,5 +1,5 @@
 /* =============================================================================
-   SuperQode Documentation - Custom Styles
+   SuperClaw Documentation - Custom Styles
    ============================================================================= */
 
 /* -----------------------------------------------------------------------------
@@ -543,7 +543,7 @@
   max-width: 200px;
 }
 
-img[alt="SuperQode Logo"] {
+img[alt="SuperClaw logo"] {
   max-height: 150px !important;
   max-width: 400px !important;
   width: auto;
@@ -1237,6 +1237,21 @@ html {
   text-decoration: none;
   font-weight: 600;
   color: #ff6b35;
+}
+
+/* Dark mode cards */
+body[data-md-color-scheme="slate"] .card {
+  background: #1e1a24;
+  border-color: #3a2f4a;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+body[data-md-color-scheme="slate"] .card p {
+  color: #cfc6d9;
+}
+
+body[data-md-color-scheme="slate"] .card a {
+  color: #ff9ad5;
 }
 
 /* Gradient styling for inline command/code */
