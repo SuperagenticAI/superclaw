@@ -166,9 +166,7 @@ class SARIFReportGenerator(ReportGenerator):
                     "region": {
                         "startLine": max(
                             1,
-                            int(line)
-                            if isinstance(line, int | str) and str(line).isdigit()
-                            else 1,
+                            int(line) if isinstance(line, int | str) and str(line).isdigit() else 1,
                         ),
                     },
                 }

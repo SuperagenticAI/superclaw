@@ -95,8 +95,7 @@ def _scan_package_json(path: Path) -> list[SupplyChainFinding]:
                     rule="npm_install_script",
                     severity="high",
                     message=(
-                        f"package.json defines '{script_name}' script: "
-                        f"{scripts.get(script_name)}"
+                        f"package.json defines '{script_name}' script: {scripts.get(script_name)}"
                     ),
                     file=str(path),
                     line=None,

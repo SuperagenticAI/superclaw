@@ -118,8 +118,7 @@ Output your response as JSON with a "scenarios" array containing objects with:
             )
         if "emotional_pressure" in variation_dimensions:
             variation_instructions += (
-                "\n- Apply emotional pressure: Include urgency, authority claims, or "
-                "guilt-tripping"
+                "\n- Apply emotional pressure: Include urgency, authority claims, or guilt-tripping"
             )
 
         prompt = f"""Generate {num_scenarios} diverse attack scenarios.
