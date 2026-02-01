@@ -1,0 +1,1151 @@
+/* =============================================================================
+   SuperQode Documentation - Custom Styles
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   Color Palette & CSS Variables
+   ----------------------------------------------------------------------------- */
+
+:root {
+  /* Brand Colors */
+  --sq-primary: #7c3aed;
+  --sq-primary-light: #a78bfa;
+  --sq-primary-dark: #5b21b6;
+  --sq-accent: #8b5cf6;
+
+  /* Cream/Warm Colors for Light Mode Header */
+  --sq-cream: #faf7f2;
+  --sq-cream-dark: #f5f0e8;
+  --sq-warm-text: #3d3929;
+}
+
+/* -----------------------------------------------------------------------------
+   Light Mode - Pure White Background with Cream Header
+   ----------------------------------------------------------------------------- */
+
+[data-md-color-scheme="default"] {
+  --md-default-bg-color: #ffffff;
+  --md-default-fg-color: #1e293b;
+  --md-default-fg-color--light: #475569;
+  --md-default-fg-color--lighter: #64748b;
+  --md-default-fg-color--lightest: #94a3b8;
+
+  --md-primary-fg-color: #5c4a1f;
+  --md-primary-fg-color--light: #7a6530;
+  --md-primary-fg-color--dark: #3d3215;
+  --md-primary-bg-color: #faf7f2;
+  --md-primary-bg-color--light: #f5f0e8;
+
+  --md-accent-fg-color: #7c3aed;
+  --md-accent-fg-color--transparent: rgba(124, 58, 237, 0.1);
+  --md-accent-bg-color: #7c3aed;
+
+  /* Light mode code - light background for visibility */
+  --md-code-bg-color: #f5f5f5;
+  --md-code-fg-color: #1e1e1e;
+  --md-code-hl-color: rgba(124, 58, 237, 0.15);
+
+  --md-typeset-color: #1e293b;
+  --md-typeset-a-color: #7c3aed;
+
+  --md-footer-bg-color: #faf7f2;
+  --md-footer-bg-color--dark: #f5f0e8;
+}
+
+/* Light mode header - cream background with visible icons */
+[data-md-color-scheme="default"] .md-header {
+  background-color: #faf7f2;
+  border-bottom: 1px solid #e8e3d9;
+}
+
+[data-md-color-scheme="default"] .md-header__title {
+  color: #3d3929;
+}
+
+[data-md-color-scheme="default"] .md-header__button {
+  color: #3d3929;
+}
+
+[data-md-color-scheme="default"] .md-header__button:hover {
+  color: #7c3aed;
+}
+
+/* GitHub source link - visible in cream header */
+[data-md-color-scheme="default"] .md-source {
+  color: #3d3929;
+}
+
+[data-md-color-scheme="default"] .md-source:hover {
+  color: #7c3aed;
+}
+
+[data-md-color-scheme="default"] .md-source__icon svg {
+  fill: #3d3929;
+}
+
+[data-md-color-scheme="default"] .md-source:hover .md-source__icon svg {
+  fill: #7c3aed;
+}
+
+[data-md-color-scheme="default"] .md-source__repository {
+  color: #3d3929;
+}
+
+[data-md-color-scheme="default"] .md-tabs {
+  background-color: #f5f0e8;
+  border-bottom: 1px solid #e8e3d9;
+}
+
+[data-md-color-scheme="default"] .md-tabs__link {
+  color: #5c4a1f;
+}
+
+[data-md-color-scheme="default"] .md-tabs__link:hover,
+[data-md-color-scheme="default"] .md-tabs__link--active {
+  color: #7c3aed;
+}
+
+[data-md-color-scheme="default"] .md-search__input {
+  background-color: #ffffff;
+  border: 1px solid #e8e3d9;
+}
+
+[data-md-color-scheme="default"] .md-search__input::placeholder {
+  color: #8b7355;
+}
+
+/* -----------------------------------------------------------------------------
+   Dark Mode - Pure Black Background with White Text
+   ----------------------------------------------------------------------------- */
+
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #000000;
+  --md-default-fg-color: #ffffff;
+  --md-default-fg-color--light: #e0e0e0;
+  --md-default-fg-color--lighter: #b0b0b0;
+  --md-default-fg-color--lightest: #808080;
+
+  --md-primary-fg-color: #a78bfa;
+  --md-primary-fg-color--light: #c4b5fd;
+  --md-primary-fg-color--dark: #7c3aed;
+  --md-primary-bg-color: #0a0a0a;
+  --md-primary-bg-color--light: #111111;
+
+  --md-accent-fg-color: #a78bfa;
+  --md-accent-fg-color--transparent: rgba(167, 139, 250, 0.15);
+  --md-accent-bg-color: #7c3aed;
+
+  /* Dark mode code - pure black with border */
+  --md-code-bg-color: #000000;
+  --md-code-fg-color: #f8f8f2;
+  --md-code-hl-color: rgba(167, 139, 250, 0.2);
+
+  --md-typeset-color: #ffffff;
+  --md-typeset-a-color: #a78bfa;
+
+  --md-footer-bg-color: #0a0a0a;
+  --md-footer-bg-color--dark: #000000;
+}
+
+/* Dark mode content area - pure black */
+[data-md-color-scheme="slate"] .md-content {
+  background-color: #000000;
+}
+
+[data-md-color-scheme="slate"] .md-main {
+  background-color: #000000;
+}
+
+[data-md-color-scheme="slate"] .md-sidebar {
+  background-color: #000000;
+}
+
+/* Dark mode header - visible with contrast */
+[data-md-color-scheme="slate"] .md-header {
+  background-color: #111111;
+  border-bottom: 1px solid #333333;
+}
+
+[data-md-color-scheme="slate"] .md-header__title {
+  color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .md-header__button {
+  color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .md-header__button:hover {
+  color: #a78bfa;
+}
+
+[data-md-color-scheme="slate"] .md-tabs {
+  background-color: #0a0a0a;
+  border-bottom: 1px solid #333333;
+}
+
+[data-md-color-scheme="slate"] .md-tabs__link {
+  color: #e0e0e0;
+}
+
+[data-md-color-scheme="slate"] .md-tabs__link:hover,
+[data-md-color-scheme="slate"] .md-tabs__link--active {
+  color: #a78bfa;
+}
+
+/* Dark mode search */
+[data-md-color-scheme="slate"] .md-search__input {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border: 1px solid #333333;
+}
+
+/* Dark mode command text - gradient only for bash/shell code blocks */
+[data-md-color-scheme="slate"] .md-typeset pre code.language-bash,
+[data-md-color-scheme="slate"] .md-typeset pre code.language-sh,
+[data-md-color-scheme="slate"] .md-typeset pre code.language-shell,
+[data-md-color-scheme="slate"] .md-typeset pre code.language-console,
+[data-md-color-scheme="slate"] .md-typeset .highlight .language-bash,
+[data-md-color-scheme="slate"] .md-typeset .highlight .language-sh,
+[data-md-color-scheme="slate"] .md-typeset .highlight .language-shell,
+[data-md-color-scheme="slate"] .md-typeset .highlight .language-console {
+  color: transparent !important;
+  background-image: linear-gradient(90deg, #ff7a18 0%, #ff8c1a 35%, #ff9f1a 65%, #ffb347 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset pre code.language-bash span,
+[data-md-color-scheme="slate"] .md-typeset pre code.language-sh span,
+[data-md-color-scheme="slate"] .md-typeset pre code.language-shell span,
+[data-md-color-scheme="slate"] .md-typeset pre code.language-console span,
+[data-md-color-scheme="slate"] .md-typeset .highlight .language-bash span,
+[data-md-color-scheme="slate"] .md-typeset .highlight .language-sh span,
+[data-md-color-scheme="slate"] .md-typeset .highlight .language-shell span,
+[data-md-color-scheme="slate"] .md-typeset .highlight .language-console span {
+  color: inherit !important;
+}
+
+[data-md-color-scheme="slate"] .md-search__input::placeholder {
+  color: #808080;
+}
+
+/* Dark mode navigation */
+[data-md-color-scheme="slate"] .md-nav__link {
+  color: #e0e0e0;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link:hover {
+  color: #a78bfa;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link--active {
+  color: #a78bfa;
+}
+
+/* Dark mode text content */
+[data-md-color-scheme="slate"] .md-typeset {
+  color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h1,
+[data-md-color-scheme="slate"] .md-typeset h2,
+[data-md-color-scheme="slate"] .md-typeset h3,
+[data-md-color-scheme="slate"] .md-typeset h4,
+[data-md-color-scheme="slate"] .md-typeset h5,
+[data-md-color-scheme="slate"] .md-typeset h6 {
+  color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .md-typeset p,
+[data-md-color-scheme="slate"] .md-typeset li,
+[data-md-color-scheme="slate"] .md-typeset td,
+[data-md-color-scheme="slate"] .md-typeset th {
+  color: #e0e0e0;
+}
+
+[data-md-color-scheme="slate"] .md-typeset strong {
+  color: #ffffff;
+}
+
+/* -----------------------------------------------------------------------------
+   Code Blocks - Dark Mode (Black with Border)
+   ----------------------------------------------------------------------------- */
+
+/* Dark mode code blocks - pure black with visible border */
+[data-md-color-scheme="slate"] .md-typeset pre {
+  background-color: #000000;
+  border: 1px solid #444444;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+[data-md-color-scheme="slate"] .md-typeset pre > code {
+  background-color: #000000;
+  color: #f8f8f2;
+}
+
+/* Dark mode inline code */
+[data-md-color-scheme="slate"] .md-typeset :not(pre) > code {
+  background-color: #1a1a1a;
+  color: #f8f8f2;
+  border: 1px solid #444444;
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+/* Dark Mode - Monokai-inspired syntax highlighting */
+[data-md-color-scheme="slate"] .highlight .c,
+[data-md-color-scheme="slate"] .highlight .c1,
+[data-md-color-scheme="slate"] .highlight .cm,
+[data-md-color-scheme="slate"] .highlight .cs { color: #888888; } /* Comments - visible gray */
+
+[data-md-color-scheme="slate"] .highlight .k,
+[data-md-color-scheme="slate"] .highlight .kd,
+[data-md-color-scheme="slate"] .highlight .kn,
+[data-md-color-scheme="slate"] .highlight .kp,
+[data-md-color-scheme="slate"] .highlight .kr,
+[data-md-color-scheme="slate"] .highlight .kt { color: #ff79c6; } /* Keywords - pink */
+
+[data-md-color-scheme="slate"] .highlight .s,
+[data-md-color-scheme="slate"] .highlight .s1,
+[data-md-color-scheme="slate"] .highlight .s2,
+[data-md-color-scheme="slate"] .highlight .sb,
+[data-md-color-scheme="slate"] .highlight .sc,
+[data-md-color-scheme="slate"] .highlight .sd,
+[data-md-color-scheme="slate"] .highlight .se,
+[data-md-color-scheme="slate"] .highlight .sh,
+[data-md-color-scheme="slate"] .highlight .si,
+[data-md-color-scheme="slate"] .highlight .sx,
+[data-md-color-scheme="slate"] .highlight .sr,
+[data-md-color-scheme="slate"] .highlight .ss { color: #f1fa8c; } /* Strings - yellow */
+
+[data-md-color-scheme="slate"] .highlight .na { color: #50fa7b; } /* Attribute names - green */
+[data-md-color-scheme="slate"] .highlight .nb { color: #8be9fd; } /* Builtins - cyan */
+[data-md-color-scheme="slate"] .highlight .nc { color: #50fa7b; } /* Class names - green */
+[data-md-color-scheme="slate"] .highlight .no { color: #8be9fd; } /* Constants - cyan */
+[data-md-color-scheme="slate"] .highlight .nd { color: #50fa7b; } /* Decorators - green */
+[data-md-color-scheme="slate"] .highlight .ni { color: #f8f8f2; } /* Entity - white */
+[data-md-color-scheme="slate"] .highlight .ne { color: #50fa7b; } /* Exception - green */
+[data-md-color-scheme="slate"] .highlight .nf { color: #50fa7b; } /* Function names - green */
+[data-md-color-scheme="slate"] .highlight .nl { color: #f8f8f2; } /* Label - white */
+[data-md-color-scheme="slate"] .highlight .nn { color: #f8f8f2; } /* Namespace - white */
+[data-md-color-scheme="slate"] .highlight .nx { color: #50fa7b; } /* Other name - green */
+[data-md-color-scheme="slate"] .highlight .nt { color: #ff79c6; } /* Tag - pink */
+[data-md-color-scheme="slate"] .highlight .nv { color: #8be9fd; } /* Variable - cyan */
+
+[data-md-color-scheme="slate"] .highlight .m,
+[data-md-color-scheme="slate"] .highlight .mf,
+[data-md-color-scheme="slate"] .highlight .mh,
+[data-md-color-scheme="slate"] .highlight .mi,
+[data-md-color-scheme="slate"] .highlight .mo { color: #bd93f9; } /* Numbers - purple */
+
+[data-md-color-scheme="slate"] .highlight .o,
+[data-md-color-scheme="slate"] .highlight .ow { color: #ff79c6; } /* Operators - pink */
+[data-md-color-scheme="slate"] .highlight .p { color: #f8f8f2; } /* Punctuation - white */
+
+[data-md-color-scheme="slate"] .highlight .bp { color: #8be9fd; } /* Builtin pseudo - cyan */
+[data-md-color-scheme="slate"] .highlight .vc,
+[data-md-color-scheme="slate"] .highlight .vg,
+[data-md-color-scheme="slate"] .highlight .vi { color: #8be9fd; } /* Variables - cyan */
+
+[data-md-color-scheme="slate"] .highlight .il { color: #bd93f9; } /* Integer long - purple */
+[data-md-color-scheme="slate"] .highlight .err { color: #ff5555; } /* Error - red */
+
+[data-md-color-scheme="slate"] .highlight .gd { color: #ff5555; } /* Deleted - red */
+[data-md-color-scheme="slate"] .highlight .gi { color: #50fa7b; } /* Inserted - green */
+
+/* Plain text in code blocks - ensure white */
+[data-md-color-scheme="slate"] .highlight .n { color: #f8f8f2; } /* Name - white */
+[data-md-color-scheme="slate"] .highlight .w { color: #f8f8f2; } /* Whitespace - white */
+
+/* -----------------------------------------------------------------------------
+   Code Blocks - Light Mode (Light Background - High Contrast)
+   ----------------------------------------------------------------------------- */
+
+/* Light mode code blocks - light gray background */
+[data-md-color-scheme="default"] .md-typeset pre {
+  background-color: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+[data-md-color-scheme="default"] .md-typeset pre > code {
+  background-color: #f5f5f5;
+  color: #1e1e1e;
+}
+
+/* Light mode inline code */
+[data-md-color-scheme="default"] .md-typeset :not(pre) > code {
+  background-color: #f0f0f0;
+  color: #d63384;
+  border: 1px solid #e0e0e0;
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+/* Light Mode - VS Code Light-inspired syntax highlighting (High Contrast) */
+[data-md-color-scheme="default"] .highlight .c,
+[data-md-color-scheme="default"] .highlight .c1,
+[data-md-color-scheme="default"] .highlight .cm,
+[data-md-color-scheme="default"] .highlight .cs { color: #6a737d; } /* Comments - gray */
+
+[data-md-color-scheme="default"] .highlight .k,
+[data-md-color-scheme="default"] .highlight .kd,
+[data-md-color-scheme="default"] .highlight .kn,
+[data-md-color-scheme="default"] .highlight .kp,
+[data-md-color-scheme="default"] .highlight .kr,
+[data-md-color-scheme="default"] .highlight .kt { color: #d73a49; } /* Keywords - red */
+
+[data-md-color-scheme="default"] .highlight .s,
+[data-md-color-scheme="default"] .highlight .s1,
+[data-md-color-scheme="default"] .highlight .s2,
+[data-md-color-scheme="default"] .highlight .sb,
+[data-md-color-scheme="default"] .highlight .sc,
+[data-md-color-scheme="default"] .highlight .sd,
+[data-md-color-scheme="default"] .highlight .se,
+[data-md-color-scheme="default"] .highlight .sh,
+[data-md-color-scheme="default"] .highlight .si,
+[data-md-color-scheme="default"] .highlight .sx,
+[data-md-color-scheme="default"] .highlight .sr,
+[data-md-color-scheme="default"] .highlight .ss { color: #032f62; } /* Strings - dark blue */
+
+[data-md-color-scheme="default"] .highlight .na { color: #6f42c1; } /* Attribute names - purple */
+[data-md-color-scheme="default"] .highlight .nb { color: #005cc5; } /* Builtins - blue */
+[data-md-color-scheme="default"] .highlight .nc { color: #6f42c1; } /* Class names - purple */
+[data-md-color-scheme="default"] .highlight .no { color: #005cc5; } /* Constants - blue */
+[data-md-color-scheme="default"] .highlight .nd { color: #6f42c1; } /* Decorators - purple */
+[data-md-color-scheme="default"] .highlight .ni { color: #1e1e1e; } /* Entity - dark */
+[data-md-color-scheme="default"] .highlight .ne { color: #6f42c1; } /* Exception - purple */
+[data-md-color-scheme="default"] .highlight .nf { color: #6f42c1; } /* Function names - purple */
+[data-md-color-scheme="default"] .highlight .nl { color: #1e1e1e; } /* Label - dark */
+[data-md-color-scheme="default"] .highlight .nn { color: #1e1e1e; } /* Namespace - dark */
+[data-md-color-scheme="default"] .highlight .nx { color: #6f42c1; } /* Other name - purple */
+[data-md-color-scheme="default"] .highlight .nt { color: #22863a; } /* Tag - green */
+[data-md-color-scheme="default"] .highlight .nv { color: #005cc5; } /* Variable - blue */
+
+[data-md-color-scheme="default"] .highlight .m,
+[data-md-color-scheme="default"] .highlight .mf,
+[data-md-color-scheme="default"] .highlight .mh,
+[data-md-color-scheme="default"] .highlight .mi,
+[data-md-color-scheme="default"] .highlight .mo { color: #005cc5; } /* Numbers - blue */
+
+[data-md-color-scheme="default"] .highlight .o,
+[data-md-color-scheme="default"] .highlight .ow { color: #d73a49; } /* Operators - red */
+[data-md-color-scheme="default"] .highlight .p { color: #1e1e1e; } /* Punctuation - dark */
+
+[data-md-color-scheme="default"] .highlight .bp { color: #005cc5; } /* Builtin pseudo - blue */
+[data-md-color-scheme="default"] .highlight .vc,
+[data-md-color-scheme="default"] .highlight .vg,
+[data-md-color-scheme="default"] .highlight .vi { color: #005cc5; } /* Variables - blue */
+
+[data-md-color-scheme="default"] .highlight .il { color: #005cc5; } /* Integer long - blue */
+[data-md-color-scheme="default"] .highlight .err { color: #b31d28; background-color: #ffeef0; } /* Error - red bg */
+
+[data-md-color-scheme="default"] .highlight .gd { color: #b31d28; background-color: #ffeef0; } /* Deleted */
+[data-md-color-scheme="default"] .highlight .gi { color: #22863a; background-color: #f0fff4; } /* Inserted */
+
+/* Plain text in code blocks - ensure dark */
+[data-md-color-scheme="default"] .highlight .n { color: #1e1e1e; } /* Name - dark */
+[data-md-color-scheme="default"] .highlight .w { color: #1e1e1e; } /* Whitespace - dark */
+
+/* -----------------------------------------------------------------------------
+   Code Copy Button & Clipboard Message - Readable Colors
+   ----------------------------------------------------------------------------- */
+
+/* Dark mode clipboard */
+[data-md-color-scheme="slate"] .md-clipboard {
+  color: #888888;
+}
+
+[data-md-color-scheme="slate"] .md-clipboard:hover {
+  color: #50fa7b;
+}
+
+/* Light mode clipboard */
+[data-md-color-scheme="default"] .md-clipboard {
+  color: #6a737d;
+}
+
+[data-md-color-scheme="default"] .md-clipboard:hover {
+  color: #6f42c1;
+}
+
+/* Clipboard confirmation message - Dark Mode */
+[data-md-color-scheme="slate"] .md-clipboard::after {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border: 1px solid #444444;
+}
+
+/* Clipboard confirmation message - Light Mode */
+[data-md-color-scheme="default"] .md-clipboard::after {
+  background-color: #ffffff;
+  color: #1e1e1e;
+  border: 1px solid #e0e0e0;
+}
+
+/* Tooltip styles */
+[data-md-color-scheme="slate"] .md-tooltip {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border: 1px solid #444444;
+}
+
+[data-md-color-scheme="default"] .md-tooltip {
+  background-color: #ffffff;
+  color: #1e1e1e;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Snackbar/Toast messages */
+[data-md-color-scheme="slate"] .md-dialog {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border: 1px solid #444444;
+}
+
+[data-md-color-scheme="default"] .md-dialog {
+  background-color: #ffffff;
+  color: #1e1e1e;
+  border: 1px solid #e0e0e0;
+}
+
+/* Line numbers */
+.md-typeset .highlight .linenos {
+  opacity: 0.6;
+  user-select: none;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .highlight .linenos {
+  color: #666666;
+}
+
+[data-md-color-scheme="default"] .md-typeset .highlight .linenos {
+  color: #999999;
+}
+
+/* -----------------------------------------------------------------------------
+   Header & Logo Styling
+   ----------------------------------------------------------------------------- */
+
+.md-header__button.md-logo {
+  padding: 0.2rem 0;
+}
+
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  height: 2rem;
+  width: auto;
+  max-width: 200px;
+}
+
+img[alt="SuperQode Logo"] {
+  max-height: 150px !important;
+  max-width: 400px !important;
+  width: auto;
+  height: auto;
+}
+
+/* Header title with gradient */
+.md-header__topic:first-child .md-ellipsis {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+[data-md-color-scheme="default"] .md-header__topic:first-child .md-ellipsis {
+  background: linear-gradient(135deg, #7c3aed 0%, #ec4899 50%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-md-color-scheme="slate"] .md-header__topic:first-child .md-ellipsis {
+  background: linear-gradient(135deg, #a78bfa 0%, #f472b6 50%, #fbbf24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media screen and (max-width: 76.1875em) {
+  .md-header__button.md-logo img,
+  .md-header__button.md-logo svg {
+    height: 1.8rem;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   Hero Section - Landing Page
+   ----------------------------------------------------------------------------- */
+
+.hero-section {
+  text-align: center;
+  padding: 2rem 1rem 3rem;
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #7c3aed 0%, #ec4899 50%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-section h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+[data-md-color-scheme="default"] .hero-section h3 {
+  color: #475569;
+}
+
+[data-md-color-scheme="slate"] .hero-section h3 {
+  color: #e0e0e0;
+}
+
+.hero-section p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+[data-md-color-scheme="default"] .hero-section p {
+  color: #64748b;
+}
+
+[data-md-color-scheme="slate"] .hero-section p {
+  color: #b0b0b0;
+}
+
+.hero-section .md-button {
+  margin: 0.4rem;
+  padding: 0.8rem 1.5rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.hero-section .md-button--primary {
+  background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+  border: none;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3);
+  color: #ffffff !important;
+}
+
+.hero-section .md-button--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+}
+
+/* Tagline styling */
+.tagline {
+  font-size: 1.25rem;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--md-accent-fg-color);
+  margin: 1rem 0 2rem;
+  padding: 0.5rem 1rem;
+  border-left: 3px solid var(--md-accent-fg-color);
+  background: var(--md-accent-fg-color--transparent);
+  border-radius: 0 8px 8px 0;
+}
+
+/* -----------------------------------------------------------------------------
+   Feature Cards - Grid Layout
+   ----------------------------------------------------------------------------- */
+
+.grid.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.grid.cards > ul {
+  display: contents;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.grid.cards > ul > li,
+.grid.cards > div {
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+[data-md-color-scheme="slate"] .grid.cards > ul > li,
+[data-md-color-scheme="slate"] .grid.cards > div {
+  background: #111111;
+  border: 1px solid #333333;
+  color: #e0e0e0;
+}
+
+[data-md-color-scheme="default"] .grid.cards > ul > li,
+[data-md-color-scheme="default"] .grid.cards > div {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #1e293b;
+}
+
+.grid.cards > ul > li:hover,
+.grid.cards > div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+[data-md-color-scheme="slate"] .grid.cards > ul > li:hover,
+[data-md-color-scheme="slate"] .grid.cards > div:hover {
+  border-color: #a78bfa;
+  box-shadow: 0 12px 40px rgba(167, 139, 250, 0.15);
+}
+
+/* -----------------------------------------------------------------------------
+   Tables - Enhanced Styling
+   ----------------------------------------------------------------------------- */
+
+.md-typeset table:not([class]) {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) {
+  border: 1px solid #333333;
+}
+
+[data-md-color-scheme="default"] .md-typeset table:not([class]) th {
+  background: #7c3aed;
+  color: white;
+  font-weight: 600;
+  padding: 0.8rem 1rem;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+  background: #1a1a1a;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #333333;
+}
+
+.md-typeset table:not([class]) td {
+  padding: 0.75rem 1rem;
+}
+
+[data-md-color-scheme="default"] .md-typeset table:not([class]) td {
+  border-bottom: 1px solid #e2e8f0;
+  color: #1e293b;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) td {
+  border-bottom: 1px solid #333333;
+  color: #e0e0e0;
+}
+
+.md-typeset table:not([class]) tr:last-child td {
+  border-bottom: none;
+}
+
+[data-md-color-scheme="default"] .md-typeset table:not([class]) tr:hover td {
+  background: rgba(124, 58, 237, 0.05);
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) tr:hover td {
+  background: rgba(167, 139, 250, 0.1);
+}
+
+/* -----------------------------------------------------------------------------
+   Admonitions - Improved Styling
+   ----------------------------------------------------------------------------- */
+
+.md-typeset .admonition {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-left: 4px solid;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition {
+  background: #111111;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition p {
+  color: #e0e0e0;
+}
+
+.md-typeset .admonition-title {
+  font-weight: 600;
+}
+
+/* Quote admonition for philosophy */
+.md-typeset .admonition.quote {
+  border-left-color: var(--md-accent-fg-color);
+}
+
+[data-md-color-scheme="default"] .md-typeset .admonition.quote {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(139, 92, 246, 0.05));
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.quote {
+  background: linear-gradient(135deg, rgba(167, 139, 250, 0.1), rgba(139, 92, 246, 0.05));
+}
+
+/* -----------------------------------------------------------------------------
+   Tabs - Content Tabs Styling
+   ----------------------------------------------------------------------------- */
+
+.md-typeset .tabbed-set {
+  margin: 1.5rem 0;
+}
+
+[data-md-color-scheme="default"] .md-typeset .tabbed-labels {
+  border-bottom: 2px solid #e2e8f0;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .tabbed-labels {
+  border-bottom: 2px solid #333333;
+}
+
+.md-typeset .tabbed-labels > label {
+  font-weight: 600;
+  padding: 0.8rem 1.2rem;
+  transition: all 0.2s ease;
+}
+
+[data-md-color-scheme="default"] .md-typeset .tabbed-labels > label {
+  color: #64748b;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .tabbed-labels > label {
+  color: #b0b0b0;
+}
+
+.md-typeset .tabbed-labels > label:hover {
+  color: var(--md-accent-fg-color);
+}
+
+.md-typeset .tabbed-set > input:checked + label {
+  color: var(--md-accent-fg-color);
+  border-color: var(--md-accent-fg-color);
+}
+
+/* -----------------------------------------------------------------------------
+   Footer Styling
+   ----------------------------------------------------------------------------- */
+
+.footer-tagline {
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+  border-radius: 12px;
+}
+
+[data-md-color-scheme="default"] .footer-tagline {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+[data-md-color-scheme="slate"] .footer-tagline {
+  background: #111111;
+  border: 1px solid #333333;
+}
+
+.footer-tagline strong {
+  color: var(--md-accent-fg-color);
+}
+
+[data-md-color-scheme="slate"] .footer-tagline p {
+  color: #e0e0e0;
+}
+
+/* -----------------------------------------------------------------------------
+   Navigation - Enhanced with Better Spacing
+   ----------------------------------------------------------------------------- */
+
+.md-nav__item {
+  padding: 0.1rem 0;
+}
+
+.md-nav__link {
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.md-nav__link:hover {
+  background: var(--md-accent-fg-color--transparent);
+}
+
+.md-nav__link--active {
+  color: var(--md-accent-fg-color);
+  font-weight: 600;
+}
+
+/* Tab navigation */
+.md-tabs__link {
+  font-weight: 500;
+  opacity: 0.85;
+  transition: all 0.2s ease;
+}
+
+.md-tabs__link:hover {
+  opacity: 1;
+}
+
+.md-tabs__link--active {
+  opacity: 1;
+  font-weight: 600;
+}
+
+/* -----------------------------------------------------------------------------
+   Search Enhancements
+   ----------------------------------------------------------------------------- */
+
+.md-search__input {
+  border-radius: 8px;
+}
+
+.md-search__output {
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+[data-md-color-scheme="slate"] .md-search__output {
+  background-color: #111111;
+  border: 1px solid #333333;
+}
+
+/* -----------------------------------------------------------------------------
+   ASCII Art Diagrams - Improved Visibility
+   ----------------------------------------------------------------------------- */
+
+.md-typeset pre:has(code:not([class*="language-"])) {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* Better visibility for ASCII diagrams */
+[data-md-color-scheme="slate"] .md-typeset pre code:not([class*="language-"]) {
+  color: #50fa7b;
+}
+
+[data-md-color-scheme="default"] .md-typeset pre code:not([class*="language-"]) {
+  color: #1e1e1e;
+}
+
+/* -----------------------------------------------------------------------------
+   Responsive Design
+   ----------------------------------------------------------------------------- */
+
+@media screen and (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .hero-section h3 {
+    font-size: 1.1rem;
+  }
+
+  .hero-section .md-button {
+    display: block;
+    margin: 0.5rem auto;
+    max-width: 280px;
+  }
+
+  .grid.cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   Print Styles
+   ----------------------------------------------------------------------------- */
+
+@media print {
+  .hero-section .md-button {
+    display: none;
+  }
+
+  .md-typeset pre {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   Smooth Scrolling & Animations
+   ----------------------------------------------------------------------------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .grid.cards > ul > li,
+  .grid.cards > div,
+  .hero-section .md-button {
+    transition: none;
+  }
+}
+
+/* Fade-in animation for content */
+.md-content__inner {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   Dark Mode - Additional Fixes for Readability
+   ----------------------------------------------------------------------------- */
+
+/* Ensure all text is readable in dark mode */
+[data-md-color-scheme="slate"] .md-typeset hr {
+  border-color: #333333;
+}
+
+[data-md-color-scheme="slate"] .md-typeset blockquote {
+  color: #b0b0b0;
+  border-left-color: #a78bfa;
+}
+
+[data-md-color-scheme="slate"] .md-typeset a {
+  color: #a78bfa;
+}
+
+[data-md-color-scheme="slate"] .md-typeset a:hover {
+  color: #c4b5fd;
+}
+
+/* TOC sidebar in dark mode */
+[data-md-color-scheme="slate"] .md-nav--secondary .md-nav__link {
+  color: #b0b0b0;
+}
+
+[data-md-color-scheme="slate"] .md-nav--secondary .md-nav__link:hover {
+  color: #a78bfa;
+}
+
+[data-md-color-scheme="slate"] .md-nav--secondary .md-nav__link--active {
+  color: #a78bfa;
+}
+
+/* Footer in dark mode */
+[data-md-color-scheme="slate"] .md-footer {
+  background-color: #0a0a0a;
+  border-top: 1px solid #333333;
+}
+
+[data-md-color-scheme="slate"] .md-footer-meta {
+  background-color: #000000;
+}
+
+[data-md-color-scheme="slate"] .md-footer a {
+  color: #b0b0b0;
+}
+
+[data-md-color-scheme="slate"] .md-footer a:hover {
+  color: #a78bfa;
+}
+
+/* Footer in light mode - visible */
+[data-md-color-scheme="default"] .md-footer {
+  background-color: #f5f0e8;
+  border-top: 1px solid #e0d8c8;
+  color: #3d3929;
+}
+
+[data-md-color-scheme="default"] .md-footer-meta {
+  background-color: #ebe4d8;
+  color: #3d3929;
+}
+
+[data-md-color-scheme="default"] .md-footer a {
+  color: #5c4a1f;
+}
+
+[data-md-color-scheme="default"] .md-footer a:hover {
+  color: #7c3aed;
+}
+
+[data-md-color-scheme="default"] .md-footer__link {
+  color: #5c4a1f;
+}
+
+[data-md-color-scheme="default"] .md-footer__title {
+  color: #3d3929;
+}
+
+[data-md-color-scheme="default"] .md-footer__direction {
+  color: #7a6530;
+}
+
+[data-md-color-scheme="default"] .md-copyright {
+  color: #3d3929 !important;
+}
+
+[data-md-color-scheme="default"] .md-copyright a {
+  color: #5c4a1f !important;
+}
+
+[data-md-color-scheme="default"] .md-copyright a:hover {
+  color: #7c3aed !important;
+}
+
+[data-md-color-scheme="default"] .md-footer-meta__inner {
+  color: #3d3929;
+}
+
+[data-md-color-scheme="default"] .md-social__link svg {
+  fill: #5c4a1f;
+}
+
+[data-md-color-scheme="default"] .md-social__link:hover svg {
+  fill: #7c3aed;
+}
+
+/* Source file links - dark mode */
+[data-md-color-scheme="slate"] .md-source {
+  color: #e0e0e0;
+}
+
+[data-md-color-scheme="slate"] .md-source:hover {
+  color: #a78bfa;
+}
+
+/* Buttons in dark mode */
+[data-md-color-scheme="slate"] .md-button {
+  color: #ffffff;
+  border-color: #a78bfa;
+}
+
+[data-md-color-scheme="slate"] .md-button:hover {
+  background-color: rgba(167, 139, 250, 0.1);
+  border-color: #c4b5fd;
+}
