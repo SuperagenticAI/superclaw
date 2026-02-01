@@ -76,8 +76,12 @@ def compare_runs(
         "improvements": improvements,
         "score_drop_threshold": config.score_drop_threshold,
         "scenarios_total": len(scenario_diffs),
-        "scenario_regressions": sum(1 for s in scenario_diffs if s["status_change"] == "regression"),
-        "scenario_improvements": sum(1 for s in scenario_diffs if s["status_change"] == "improvement"),
+        "scenario_regressions": sum(
+            1 for s in scenario_diffs if s["status_change"] == "regression"
+        ),
+        "scenario_improvements": sum(
+            1 for s in scenario_diffs if s["status_change"] == "improvement"
+        ),
     }
 
     return {

@@ -13,19 +13,21 @@ from superclaw.adapters.base import AgentAdapter, AgentOutput
 class OpenClawAdapter(AgentAdapter):
     """
     Adapter for OpenClaw agents via ACP protocol.
-    
+
     Connects to OpenClaw gateway via WebSocket and manages
     ACP session communication.
     """
 
     def __init__(self, config: dict[str, Any] | None = None):
         super().__init__(config)
-        self.target = config.get("target", "ws://127.0.0.1:18789") if config else "ws://127.0.0.1:18789"
+        self.target = (
+            config.get("target", "ws://127.0.0.1:18789") if config else "ws://127.0.0.1:18789"
+        )
         self.token = config.get("token") if config else None
         self.password = config.get("password") if config else None
         self.request_timeout = float(config.get("request_timeout", 120.0)) if config else 120.0
         self.open_timeout = float(config.get("open_timeout", 10.0)) if config else 10.0
-        
+
         self._ws = None
         self._session_id = ""
         self._request_id = 0
@@ -45,31 +47,31 @@ class OpenClawAdapter(AgentAdapter):
 
             if not (self.target.startswith("ws://") or self.target.startswith("wss://")):
                 raise ValueError("OpenClaw target must be a ws:// or wss:// URL")
-            
+
             headers = {}
             if self.token:
                 headers["Authorization"] = f"Bearer {self.token}"
-            
+
             self._ws = await websockets.connect(
                 self.target,
                 additional_headers=headers if headers else None,
                 open_timeout=self.open_timeout,
             )
-            
+
             # Start reading messages
             self._read_task = asyncio.create_task(self._read_loop())
-            
+
             # Initialize ACP
             await self._initialize()
-            
+
             # Create session
             await self._create_session()
 
             if not self._session_id:
                 raise RuntimeError("Failed to create ACP session")
-            
+
             return True
-            
+
         except Exception as e:
             print(f"Connection failed: {e}")
             return False
@@ -82,7 +84,7 @@ class OpenClawAdapter(AgentAdapter):
                 await self._read_task
             except asyncio.CancelledError:
                 pass
-        
+
         if self._ws:
             await self._ws.close()
             self._ws = None
@@ -100,15 +102,15 @@ class OpenClawAdapter(AgentAdapter):
 
         context = context or {}
         start_time = time.time()
-        
+
         # Clear tracking for new interaction
         self._acp_messages.clear()
         self._tool_calls.clear()
         self._tool_results.clear()
-        
+
         # Prepare content blocks
         content_blocks = [{"type": "text", "text": prompt}]
-        
+
         # Send prompt
         response = await self._call_method(
             "session/prompt",
@@ -118,9 +120,9 @@ class OpenClawAdapter(AgentAdapter):
 
         if response and isinstance(response, dict) and response.get("error"):
             raise RuntimeError(f"OpenClaw error: {response['error']}")
-        
+
         duration_ms = (time.time() - start_time) * 1000
-        
+
         # Extract response text
         response_text = ""
         if response:
@@ -188,33 +190,35 @@ class OpenClawAdapter(AgentAdapter):
 
         self._request_id += 1
         request_id = self._request_id
-        
+
         message = {
             "jsonrpc": "2.0",
             "id": request_id,
             "method": method,
             "params": params,
         }
-        
+
         # Track message
-        self._acp_messages.append({
-            "type": "request",
-            "method": method,
-            "params": params,
-        })
-        
+        self._acp_messages.append(
+            {
+                "type": "request",
+                "method": method,
+                "params": params,
+            }
+        )
+
         # Create future for response
         future: asyncio.Future = asyncio.Future()
         self._pending[request_id] = future
-        
+
         # Send message
         await self._ws.send(json.dumps(message))
-        
+
         # Wait for response
         try:
             response = await asyncio.wait_for(future, timeout=self.request_timeout)
             return response
-        except asyncio.TimeoutError:
+        except TimeoutError:
             del self._pending[request_id]
             return None
 
@@ -234,13 +238,15 @@ class OpenClawAdapter(AgentAdapter):
             data = json.loads(raw)
         except json.JSONDecodeError:
             return
-        
+
         # Track all messages
-        self._acp_messages.append({
-            "type": "response" if "id" in data else "notification",
-            **data,
-        })
-        
+        self._acp_messages.append(
+            {
+                "type": "response" if "id" in data else "notification",
+                **data,
+            }
+        )
+
         # Handle response
         if "id" in data:
             request_id = data["id"]
@@ -250,11 +256,11 @@ class OpenClawAdapter(AgentAdapter):
                     future.set_result({"error": data["error"]})
                 else:
                     future.set_result(data.get("result", {}))
-        
+
         # Handle notifications
         method = data.get("method", "")
         params = data.get("params", {})
-        
+
         if method == "tool/call":
             self._tool_calls.append(params)
         elif method == "tool/result":

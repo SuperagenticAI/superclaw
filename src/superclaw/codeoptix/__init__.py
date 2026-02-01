@@ -9,13 +9,13 @@ from superclaw.codeoptix.adapter import (
     adapt_behavior_to_codeoptix,
     register_superclaw_behaviors,
 )
-from superclaw.codeoptix.evaluator import (
-    SecurityEvaluator,
-    create_security_evaluator,
-)
 from superclaw.codeoptix.engine import (
     SecurityEvaluationEngine,
     create_security_engine,
+)
+from superclaw.codeoptix.evaluator import (
+    SecurityEvaluator,
+    create_security_evaluator,
 )
 
 __all__ = [

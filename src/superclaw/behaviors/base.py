@@ -5,7 +5,7 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 
 if TYPE_CHECKING:
     from superclaw.adapters.base import AgentOutput
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class Severity(str, Enum):
     """Severity levels for security findings."""
-    
+
     LOW = "low"
     MEDIUM = "medium"
     HIGH = "high"
@@ -108,7 +108,7 @@ class BehaviorSpec(ABC):
     @abstractmethod
     def evaluate(
         self,
-        agent_output: "AgentOutput",
+        agent_output: AgentOutput,
         context: dict[str, Any] | None = None,
     ) -> BehaviorResult:
         """

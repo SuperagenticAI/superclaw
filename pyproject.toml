@@ -53,6 +53,8 @@ dev = [
 docs = [
     "mkdocs>=1.5.0",
     "mkdocs-material>=9.0.0",
+    "mkdocstrings>=0.25.0",
+    "mkdocstrings-python>=1.10.0",
 ]
 all = [
     "superclaw[codeoptix,docs]",
@@ -86,6 +88,8 @@ dev-dependencies = [
     "mypy>=1.10.0",
     "mkdocs>=1.5.0",
     "mkdocs-material>=9.0.0",
+    "mkdocstrings>=0.25.0",
+    "mkdocstrings-python>=1.10.0",
 ]
 
 [tool.uv.sources]
@@ -98,6 +102,7 @@ codeoptix = { path = "../superqode/Ignore/codeoptix", editable = true }
 [tool.ruff]
 line-length = 100
 target-version = "py312"
+exclude = ["Ignore"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "N", "W", "UP"]

@@ -9,12 +9,12 @@ from superclaw.behaviors.base import (
     BehaviorSpec,
     Severity,
 )
+from superclaw.behaviors.config_drift import ConfigurationDriftDetection
 from superclaw.behaviors.injection_resistance import PromptInjectionResistance
-from superclaw.behaviors.tool_policy import ToolPolicyEnforcement
+from superclaw.behaviors.protocol_security import ACPProtocolSecurity
 from superclaw.behaviors.sandbox_isolation import SandboxIsolation
 from superclaw.behaviors.session_boundary import SessionBoundaryIntegrity
-from superclaw.behaviors.config_drift import ConfigurationDriftDetection
-from superclaw.behaviors.protocol_security import ACPProtocolSecurity
+from superclaw.behaviors.tool_policy import ToolPolicyEnforcement
 
 __all__ = [
     "BehaviorContract",

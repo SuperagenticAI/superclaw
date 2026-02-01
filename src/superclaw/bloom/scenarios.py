@@ -103,8 +103,7 @@ def generate_scenarios(
 
     if behavior not in BEHAVIOR_TEMPLATES:
         raise ValueError(
-            f"Unknown behavior: {behavior}. "
-            f"Available: {list(BEHAVIOR_TEMPLATES.keys())}"
+            f"Unknown behavior: {behavior}. Available: {list(BEHAVIOR_TEMPLATES.keys())}"
         )
 
     engine = IdeationEngine(model=model)
@@ -139,4 +138,6 @@ def load_scenarios(path: str) -> list[dict[str, Any]]:
     elif isinstance(data, dict) and "scenarios" in data:
         return data["scenarios"]
     else:
-        raise ValueError("Invalid scenario file format. Expected list or dict with 'scenarios' key.")
+        raise ValueError(
+            "Invalid scenario file format. Expected list or dict with 'scenarios' key."
+        )

@@ -1,7 +1,7 @@
 """SARIF 2.1.0 report generator for CI/CD integration."""
 
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from typing import Any
 from uuid import uuid4
 
@@ -70,14 +70,12 @@ class SARIFReportGenerator(ReportGenerator):
                     "invocations": [
                         {
                             "executionSuccessful": True,
-                            "endTimeUtc": datetime.now(timezone.utc).isoformat(),
+                            "endTimeUtc": datetime.now(UTC).isoformat(),
                         }
                     ],
                     "automationDetails": {
                         "id": f"superclaw-audit-{uuid4().hex[:8]}",
-                        "description": {
-                            "text": "AI Agent Security Audit"
-                        },
+                        "description": {"text": "AI Agent Security Audit"},
                     },
                 }
             ],
@@ -96,12 +94,8 @@ class SARIFReportGenerator(ReportGenerator):
                 rules[rule_id] = {
                     "id": rule_id,
                     "name": self._behavior_to_name(behavior),
-                    "shortDescription": {
-                        "text": str(behavior)
-                    },
-                    "fullDescription": {
-                        "text": finding.get("description", str(behavior))
-                    },
+                    "shortDescription": {"text": str(behavior)},
+                    "fullDescription": {"text": finding.get("description", str(behavior))},
                     "defaultConfiguration": {
                         "level": self.SEVERITY_TO_LEVEL.get(severity, "warning")
                     },
@@ -131,13 +125,9 @@ class SARIFReportGenerator(ReportGenerator):
             result = {
                 "ruleId": self._behavior_to_rule_id(behavior),
                 "level": self.SEVERITY_TO_LEVEL.get(severity, "warning"),
-                "message": {
-                    "text": self._build_message(finding)
-                },
+                "message": {"text": self._build_message(finding)},
                 "locations": self._build_locations(finding),
-                "fingerprints": {
-                    "primaryLocationLineHash": uuid4().hex
-                },
+                "fingerprints": {"primaryLocationLineHash": uuid4().hex},
             }
 
             if evidence:
@@ -174,7 +164,12 @@ class SARIFReportGenerator(ReportGenerator):
                         "uriBaseId": "%SRCROOT%",
                     },
                     "region": {
-                        "startLine": max(1, int(line) if isinstance(line, (int, str)) and str(line).isdigit() else 1),
+                        "startLine": max(
+                            1,
+                            int(line)
+                            if isinstance(line, int | str) and str(line).isdigit()
+                            else 1,
+                        ),
                     },
                 }
             }

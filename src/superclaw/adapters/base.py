@@ -11,7 +11,7 @@ from typing import Any
 class AgentOutput:
     """
     Output from an AI agent interaction.
-    
+
     This captures all relevant data from an agent session for security evaluation.
     """
 

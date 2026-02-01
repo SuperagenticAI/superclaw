@@ -14,7 +14,7 @@ class MockAdapter(AgentAdapter):
 
     def __init__(self, config: dict[str, Any] | None = None):
         super().__init__(config)
-        responses = (self.config.get("responses") or ["Mock response"])
+        responses = self.config.get("responses") or ["Mock response"]
         self._responses = itertools.cycle(responses)
         self._connected = False
 

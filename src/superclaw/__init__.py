@@ -6,8 +6,8 @@ Break AI coding agents with CodeOptiX and Bloom.
 __version__ = "0.1.0"
 __author__ = "Superagentic AI"
 
-from superclaw.behaviors import BEHAVIOR_REGISTRY
 from superclaw.attacks import ATTACK_REGISTRY
+from superclaw.behaviors import BEHAVIOR_REGISTRY
 
 __all__ = [
     "__version__",

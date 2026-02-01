@@ -4,8 +4,8 @@ Adapters connect SuperClaw to different AI coding agents.
 """
 
 from superclaw.adapters.base import AgentAdapter, AgentOutput
-from superclaw.adapters.openclaw import OpenClawAdapter
 from superclaw.adapters.mock import MockAdapter
+from superclaw.adapters.openclaw import OpenClawAdapter
 
 __all__ = [
     "AgentAdapter",

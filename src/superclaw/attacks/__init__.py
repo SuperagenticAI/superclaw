@@ -8,11 +8,11 @@ from __future__ import annotations
 from typing import Any
 
 from superclaw.attacks.base import Attack, AttackResult
-from superclaw.attacks.prompt_injection import PromptInjectionAttack
 from superclaw.attacks.encoding import EncodingObfuscationAttack
 from superclaw.attacks.jailbreaks import JailbreakAttack
-from superclaw.attacks.tool_bypass import ToolBypassAttack
 from superclaw.attacks.multi_turn import MultiTurnAttack
+from superclaw.attacks.prompt_injection import PromptInjectionAttack
+from superclaw.attacks.tool_bypass import ToolBypassAttack
 
 __all__ = [
     "Attack",
@@ -63,14 +63,14 @@ async def _run_attack_async(
         config["project_dir"] = project_dir
     if adapter_config:
         config.update(adapter_config)
-    
+
     adapter = create_adapter(agent_type, config)
-    
+
     # Connect to agent
     connected = await adapter.connect()
     if not connected:
         return {"error": "Failed to connect to agent", "behaviors": {}}
-    
+
     try:
         results = {
             "agent_type": agent_type,
@@ -83,36 +83,36 @@ async def _run_attack_async(
                 "techniques": techniques,
             },
         }
-        
+
         # Determine which behaviors to test
         behavior_names = behaviors or list(BEHAVIOR_REGISTRY.keys())
-        
+
         # Determine which techniques to use
         technique_names = techniques or list(ATTACK_REGISTRY.keys())
-        
+
         # Run attacks
         for technique_name in technique_names:
             if technique_name not in ATTACK_REGISTRY:
                 continue
-            
+
             attack_class = ATTACK_REGISTRY[technique_name]
             attack = attack_class()
-            
+
             # Generate attack payloads
             payloads = attack.generate_payloads()
-            
+
             for payload in payloads[:5]:  # Limit payloads per technique
                 # Send attack payload
                 output = await adapter.send_prompt(payload)
-                
+
                 # Evaluate against behaviors
                 for behavior_name in behavior_names:
                     if behavior_name not in BEHAVIOR_REGISTRY:
                         continue
-                    
+
                     behavior = create_behavior(behavior_name)
                     result = behavior.evaluate(output, context={})
-                    
+
                     # Aggregate results
                     if behavior_name not in results["behaviors"]:
                         results["behaviors"][behavior_name] = {
@@ -122,36 +122,38 @@ async def _run_attack_async(
                             "attempts": 0,
                             "severity": result.severity.value,
                         }
-                    
+
                     behavior_results = results["behaviors"][behavior_name]
                     behavior_results["attempts"] += 1
-                    
+
                     if not result.passed:
                         behavior_results["passed"] = False
                         behavior_results["evidence"].extend(result.evidence)
-                    
+
                     # Running average score
                     n = behavior_results["attempts"]
                     behavior_results["score"] = (
-                        (behavior_results["score"] * (n - 1) + result.score) / n
-                    )
-                
-                results["attacks"].append({
-                    "technique": technique_name,
-                    "payload_preview": payload[:100],
-                    "response_length": len(output.response_text),
-                    "evidence_ledger": output.to_ledger(),
-                })
-        
+                        behavior_results["score"] * (n - 1) + result.score
+                    ) / n
+
+                results["attacks"].append(
+                    {
+                        "technique": technique_name,
+                        "payload_preview": payload[:100],
+                        "response_length": len(output.response_text),
+                        "evidence_ledger": output.to_ledger(),
+                    }
+                )
+
         # Calculate overall score
         if results["behaviors"]:
             scores = [b["score"] for b in results["behaviors"].values()]
             results["overall_score"] = sum(scores) / len(scores)
 
         results["findings"] = _build_findings(results["behaviors"])
-        
+
         return results
-        
+
     finally:
         await adapter.disconnect()
 
@@ -252,13 +254,9 @@ async def _run_evaluation_async(
                     behavior_results["evidence"].extend(result.evidence)
 
                 n = behavior_results["attempts"]
-                behavior_results["score"] = (
-                    (behavior_results["score"] * (n - 1) + result.score) / n
-                )
+                behavior_results["score"] = (behavior_results["score"] * (n - 1) + result.score) / n
 
-            scenario_score = (
-                sum(scenario_scores) / len(scenario_scores) if scenario_scores else 0.0
-            )
+            scenario_score = sum(scenario_scores) / len(scenario_scores) if scenario_scores else 0.0
 
             results["scenarios"].append(
                 {
@@ -297,26 +295,29 @@ def run_attack(
 ) -> dict[str, Any]:
     """
     Run attack against an agent.
-    
+
     Args:
         agent_type: Type of agent (openclaw, acp, etc.)
         target: Target URL or command
         behaviors: Behaviors to test (None = all)
         techniques: Attack techniques to use (None = all)
         project_dir: Project directory for ACP agents
-    
+
     Returns:
         Attack results dictionary
     """
     import asyncio
-    return asyncio.run(_run_attack_async(
-        agent_type=agent_type,
-        target=target,
-        behaviors=behaviors,
-        techniques=techniques,
-        project_dir=project_dir,
-        adapter_config=adapter_config,
-    ))
+
+    return asyncio.run(
+        _run_attack_async(
+            agent_type=agent_type,
+            target=target,
+            behaviors=behaviors,
+            techniques=techniques,
+            project_dir=project_dir,
+            adapter_config=adapter_config,
+        )
+    )
 
 
 def run_evaluation(
@@ -329,7 +330,7 @@ def run_evaluation(
 ) -> dict[str, Any]:
     """
     Run evaluation against an agent.
-    
+
     Similar to run_attack but with optional pre-generated scenarios.
     """
     import asyncio
@@ -362,12 +363,12 @@ def run_audit(
 ) -> dict[str, Any]:
     """
     Run security audit against an agent.
-    
+
     Args:
         agent_type: Type of agent
         target: Target URL
         mode: Audit mode (quick, standard, comprehensive)
-    
+
     Returns:
         Audit results with summary
     """
@@ -385,16 +386,16 @@ def run_audit(
             "sandbox-isolation",
         ]
         techniques = ["prompt-injection", "encoding", "tool-bypass"]
-    
+
     results = run_attack(
         agent_type=agent_type,
         target=target,
         behaviors=behaviors,
         techniques=techniques,
     )
-    
+
     results["summary"] = _build_summary(results.get("behaviors", {}))
-    
+
     return results
 
 
@@ -474,7 +475,10 @@ def _enforce_guardrails(
             token = adapter_config.get("authorization_token") or adapter_config.get("token")
         token = token or os.environ.get("SUPERCLAW_AUTH_TOKEN")
         if not token:
-            raise ValueError("Authorization required for remote targets. Set SUPERCLAW_AUTH_TOKEN or pass adapter token.")
+            raise ValueError(
+                "Authorization required for remote targets. Set SUPERCLAW_AUTH_TOKEN "
+                "or pass adapter token."
+            )
 
 
 def _is_local_target(target: str) -> bool:

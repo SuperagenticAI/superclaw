@@ -52,36 +52,24 @@ def handle_error(message: str, exception: Exception | None = None) -> None:
 @attack_app.command("openclaw")
 def attack_openclaw(
     target: str = typer.Option(
-        "ws://127.0.0.1:18789",
-        "--target", "-t",
-        help="OpenClaw gateway URL"
+        "ws://127.0.0.1:18789", "--target", "-t", help="OpenClaw gateway URL"
     ),
     behaviors: str = typer.Option(
-        "all",
-        "--behaviors", "-b",
-        help="Comma-separated behaviors to test"
+        "all", "--behaviors", "-b", help="Comma-separated behaviors to test"
     ),
-    techniques: str = typer.Option(
-        "all",
-        "--techniques",
-        help="Attack techniques to use"
-    ),
-    output: str | None = typer.Option(
-        None,
-        "--output", "-o",
-        help="Output file for results"
-    ),
+    techniques: str = typer.Option("all", "--techniques", help="Attack techniques to use"),
+    output: str | None = typer.Option(None, "--output", "-o", help="Output file for results"),
     dry_run: bool = typer.Option(
-        False,
-        "--dry-run",
-        help="Show what would be done without executing"
+        False, "--dry-run", help="Show what would be done without executing"
     ),
 ):
     """Attack an OpenClaw agent."""
-    console.print(Panel.fit(
-        "[bold red]🦞 SuperClaw[/bold red] attacking [bold cyan]OpenClaw[/bold cyan]",
-        border_style="red"
-    ))
+    console.print(
+        Panel.fit(
+            "[bold red]🦞 SuperClaw[/bold red] attacking [bold cyan]OpenClaw[/bold cyan]",
+            border_style="red",
+        )
+    )
     console.print(f"  Target: [cyan]{target}[/cyan]")
     console.print(f"  Behaviors: [yellow]{behaviors}[/yellow]")
     console.print(f"  Techniques: [yellow]{techniques}[/yellow]")
@@ -119,31 +107,19 @@ def attack_openclaw(
 @attack_app.command("acp")
 def attack_acp(
     command: str = typer.Option(
-        ...,
-        "--command", "-c",
-        help="ACP agent command (e.g., 'opencode acp')"
+        ..., "--command", "-c", help="ACP agent command (e.g., 'opencode acp')"
     ),
-    project: str = typer.Option(
-        ".",
-        "--project", "-p",
-        help="Project directory"
-    ),
-    behaviors: str = typer.Option(
-        "all",
-        "--behaviors", "-b",
-        help="Comma-separated behaviors"
-    ),
-    output: str | None = typer.Option(
-        None,
-        "--output", "-o",
-        help="Output file"
-    ),
+    project: str = typer.Option(".", "--project", "-p", help="Project directory"),
+    behaviors: str = typer.Option("all", "--behaviors", "-b", help="Comma-separated behaviors"),
+    output: str | None = typer.Option(None, "--output", "-o", help="Output file"),
 ):
     """Attack any ACP-compatible agent."""
-    console.print(Panel.fit(
-        "[bold red]🦞 SuperClaw[/bold red] attacking [bold cyan]ACP Agent[/bold cyan]",
-        border_style="red"
-    ))
+    console.print(
+        Panel.fit(
+            "[bold red]🦞 SuperClaw[/bold red] attacking [bold cyan]ACP Agent[/bold cyan]",
+            border_style="red",
+        )
+    )
     console.print(f"  Command: [cyan]{command}[/cyan]")
     console.print(f"  Project: [yellow]{project}[/yellow]")
     console.print(f"  Behaviors: [yellow]{behaviors}[/yellow]")
@@ -174,41 +150,27 @@ def attack_acp(
 @attack_app.command("mock")
 def attack_mock(
     mock_response: list[str] = typer.Option(
-        [],
-        "--mock-response",
-        help="Mock response text (can be provided multiple times)"
+        [], "--mock-response", help="Mock response text (can be provided multiple times)"
     ),
     echo_prompt: bool = typer.Option(
-        False,
-        "--echo-prompt",
-        help="Append the prompt to the mock response"
+        False, "--echo-prompt", help="Append the prompt to the mock response"
     ),
     simulate_injection: bool = typer.Option(
-        False,
-        "--simulate-injection",
-        help="Simulate a successful injection attempt"
+        False, "--simulate-injection", help="Simulate a successful injection attempt"
     ),
     behaviors: str = typer.Option(
-        "all",
-        "--behaviors", "-b",
-        help="Comma-separated behaviors to test"
+        "all", "--behaviors", "-b", help="Comma-separated behaviors to test"
     ),
-    techniques: str = typer.Option(
-        "all",
-        "--techniques",
-        help="Attack techniques to use"
-    ),
-    output: str | None = typer.Option(
-        None,
-        "--output", "-o",
-        help="Output file for results"
-    ),
+    techniques: str = typer.Option("all", "--techniques", help="Attack techniques to use"),
+    output: str | None = typer.Option(None, "--output", "-o", help="Output file for results"),
 ):
     """Attack a mock agent (offline testing)."""
-    console.print(Panel.fit(
-        "[bold red]🦞 SuperClaw[/bold red] attacking [bold cyan]Mock Agent[/bold cyan]",
-        border_style="red"
-    ))
+    console.print(
+        Panel.fit(
+            "[bold red]🦞 SuperClaw[/bold red] attacking [bold cyan]Mock Agent[/bold cyan]",
+            border_style="red",
+        )
+    )
     console.print(f"  Behaviors: [yellow]{behaviors}[/yellow]")
     console.print(f"  Techniques: [yellow]{techniques}[/yellow]")
     console.print()
@@ -250,36 +212,26 @@ def attack_mock(
 @generate_app.command("scenarios")
 def generate_scenarios(
     behavior: str = typer.Option(
-        ...,
-        "--behavior", "-b",
-        help="Target behavior (e.g., prompt-injection-vulnerability)"
+        ..., "--behavior", "-b", help="Target behavior (e.g., prompt-injection-vulnerability)"
     ),
     num_scenarios: int = typer.Option(
-        10,
-        "--num-scenarios", "-n",
-        help="Number of scenarios to generate"
+        10, "--num-scenarios", "-n", help="Number of scenarios to generate"
     ),
     variations: str = typer.Option(
         "noise,emotional_pressure",
-        "--variations", "-v",
-        help="Variation dimensions (comma-separated)"
+        "--variations",
+        "-v",
+        help="Variation dimensions (comma-separated)",
     ),
-    output: str = typer.Option(
-        "scenarios.json",
-        "--output", "-o",
-        help="Output file"
-    ),
+    output: str = typer.Option("scenarios.json", "--output", "-o", help="Output file"),
     model: str = typer.Option(
-        "claude-sonnet-4",
-        "--model", "-m",
-        help="Model for scenario generation"
+        "claude-sonnet-4", "--model", "-m", help="Model for scenario generation"
     ),
 ):
     """Generate attack scenarios using Bloom ideation."""
-    console.print(Panel.fit(
-        "[bold cyan]🌸 Bloom Scenario Generation[/bold cyan]",
-        border_style="cyan"
-    ))
+    console.print(
+        Panel.fit("[bold cyan]🌸 Bloom Scenario Generation[/bold cyan]", border_style="cyan")
+    )
     console.print(f"  Behavior: [yellow]{behavior}[/yellow]")
     console.print(f"  Scenarios: [cyan]{num_scenarios}[/cyan]")
     console.print(f"  Variations: [yellow]{variations}[/yellow]")
@@ -316,36 +268,17 @@ def generate_scenarios(
 @evaluate_app.command("openclaw")
 def evaluate_openclaw(
     target: str = typer.Option(
-        "ws://127.0.0.1:18789",
-        "--target", "-t",
-        help="OpenClaw gateway URL"
+        "ws://127.0.0.1:18789", "--target", "-t", help="OpenClaw gateway URL"
     ),
-    scenarios: str | None = typer.Option(
-        None,
-        "--scenarios", "-s",
-        help="Scenarios JSON file"
-    ),
-    behaviors: str = typer.Option(
-        "all",
-        "--behaviors", "-b",
-        help="Behaviors to evaluate"
-    ),
-    techniques: str = typer.Option(
-        "all",
-        "--techniques",
-        help="Attack techniques to use"
-    ),
-    output: str | None = typer.Option(
-        None,
-        "--output", "-o",
-        help="Output file"
-    ),
+    scenarios: str | None = typer.Option(None, "--scenarios", "-s", help="Scenarios JSON file"),
+    behaviors: str = typer.Option("all", "--behaviors", "-b", help="Behaviors to evaluate"),
+    techniques: str = typer.Option("all", "--techniques", help="Attack techniques to use"),
+    output: str | None = typer.Option(None, "--output", "-o", help="Output file"),
 ):
     """Evaluate OpenClaw agent against security behaviors."""
-    console.print(Panel.fit(
-        "[bold yellow]🔍 SuperClaw Evaluation[/bold yellow]",
-        border_style="yellow"
-    ))
+    console.print(
+        Panel.fit("[bold yellow]🔍 SuperClaw Evaluation[/bold yellow]", border_style="yellow")
+    )
     console.print(f"  Target: [cyan]{target}[/cyan]")
     console.print(f"  Behaviors: [yellow]{behaviors}[/yellow]")
     console.print(f"  Techniques: [yellow]{techniques}[/yellow]")
@@ -389,41 +322,22 @@ def evaluate_openclaw(
 @evaluate_app.command("mock")
 def evaluate_mock(
     mock_response: list[str] = typer.Option(
-        [],
-        "--mock-response",
-        help="Mock response text (can be provided multiple times)"
+        [], "--mock-response", help="Mock response text (can be provided multiple times)"
     ),
     echo_prompt: bool = typer.Option(
-        False,
-        "--echo-prompt",
-        help="Append the prompt to the mock response"
+        False, "--echo-prompt", help="Append the prompt to the mock response"
     ),
     simulate_injection: bool = typer.Option(
-        False,
-        "--simulate-injection",
-        help="Simulate a successful injection attempt"
+        False, "--simulate-injection", help="Simulate a successful injection attempt"
     ),
-    scenarios: str | None = typer.Option(
-        None,
-        "--scenarios", "-s",
-        help="Scenarios JSON file"
-    ),
-    behaviors: str = typer.Option(
-        "all",
-        "--behaviors", "-b",
-        help="Behaviors to evaluate"
-    ),
-    output: str | None = typer.Option(
-        None,
-        "--output", "-o",
-        help="Output file"
-    ),
+    scenarios: str | None = typer.Option(None, "--scenarios", "-s", help="Scenarios JSON file"),
+    behaviors: str = typer.Option("all", "--behaviors", "-b", help="Behaviors to evaluate"),
+    output: str | None = typer.Option(None, "--output", "-o", help="Output file"),
 ):
     """Evaluate a mock agent (offline testing)."""
-    console.print(Panel.fit(
-        "[bold yellow]🔍 SuperClaw Evaluation[/bold yellow]",
-        border_style="yellow"
-    ))
+    console.print(
+        Panel.fit("[bold yellow]🔍 SuperClaw Evaluation[/bold yellow]", border_style="yellow")
+    )
     console.print(f"  Behaviors: [yellow]{behaviors}[/yellow]")
     if scenarios:
         console.print(f"  Scenarios: [dim]{scenarios}[/dim]")
@@ -474,38 +388,30 @@ def evaluate_mock(
 @audit_app.command("openclaw")
 def audit_openclaw(
     target: str = typer.Option(
-        "ws://127.0.0.1:18789",
-        "--target", "-t",
-        help="OpenClaw gateway URL"
+        "ws://127.0.0.1:18789", "--target", "-t", help="OpenClaw gateway URL"
     ),
     comprehensive: bool = typer.Option(
-        False,
-        "--comprehensive",
-        help="Run comprehensive audit (all behaviors, all techniques)"
+        False, "--comprehensive", help="Run comprehensive audit (all behaviors, all techniques)"
     ),
     quick: bool = typer.Option(
-        False,
-        "--quick",
-        help="Quick security check (essential behaviors only)"
+        False, "--quick", help="Quick security check (essential behaviors only)"
     ),
     report_format: str = typer.Option(
-        "html",
-        "--report-format", "-f",
-        help="Report format: html, json, sarif"
+        "html", "--report-format", "-f", help="Report format: html, json, sarif"
     ),
     output: str = typer.Option(
-        "audit-report",
-        "--output", "-o",
-        help="Output file (without extension)"
+        "audit-report", "--output", "-o", help="Output file (without extension)"
     ),
 ):
     """Run security audit on OpenClaw agent."""
     mode = "comprehensive" if comprehensive else "quick" if quick else "standard"
 
-    console.print(Panel.fit(
-        f"[bold yellow]🔍 SuperClaw Security Audit[/bold yellow] ({mode})",
-        border_style="yellow"
-    ))
+    console.print(
+        Panel.fit(
+            f"[bold yellow]🔍 SuperClaw Security Audit[/bold yellow] ({mode})",
+            border_style="yellow",
+        )
+    )
     console.print(f"  Target: [cyan]{target}[/cyan]")
     console.print(f"  Mode: [yellow]{mode}[/yellow]")
     console.print(f"  Format: [dim]{report_format}[/dim]")
@@ -541,26 +447,15 @@ def audit_openclaw(
 @report_app.command("generate")
 def report_generate(
     results_file: str = typer.Option(
-        ...,
-        "--results", "-r",
-        help="Results JSON file from attack/evaluate/audit"
+        ..., "--results", "-r", help="Results JSON file from attack/evaluate/audit"
     ),
     report_format: str = typer.Option(
-        "html",
-        "--format", "-f",
-        help="Report format: html, json, sarif"
+        "html", "--format", "-f", help="Report format: html, json, sarif"
     ),
-    output: str = typer.Option(
-        "report",
-        "--output", "-o",
-        help="Output file (without extension)"
-    ),
+    output: str = typer.Option("report", "--output", "-o", help="Output file (without extension)"),
 ):
     """Generate a report from attack/evaluation results."""
-    console.print(Panel.fit(
-        "[bold cyan]📊 Report Generation[/bold cyan]",
-        border_style="cyan"
-    ))
+    console.print(Panel.fit("[bold cyan]📊 Report Generation[/bold cyan]", border_style="cyan"))
     console.print(f"  Results: [dim]{results_file}[/dim]")
     console.print(f"  Format: [yellow]{report_format}[/yellow]")
     console.print()
@@ -585,32 +480,19 @@ def report_generate(
 
 @report_app.command("drift")
 def report_drift(
-    baseline: str = typer.Option(
-        ...,
-        "--baseline", "-b",
-        help="Baseline results JSON file"
-    ),
-    current: str = typer.Option(
-        ...,
-        "--current", "-c",
-        help="Current results JSON file"
-    ),
+    baseline: str = typer.Option(..., "--baseline", "-b", help="Baseline results JSON file"),
+    current: str = typer.Option(..., "--current", "-c", help="Current results JSON file"),
     score_drop_threshold: float = typer.Option(
-        0.1,
-        "--score-drop-threshold",
-        help="Score drop threshold to flag regression"
+        0.1, "--score-drop-threshold", help="Score drop threshold to flag regression"
     ),
     output: str | None = typer.Option(
-        None,
-        "--output", "-o",
-        help="Write JSON drift report to file"
+        None, "--output", "-o", help="Write JSON drift report to file"
     ),
 ):
     """Compare two runs and report drift."""
-    console.print(Panel.fit(
-        "[bold cyan]📈 SuperClaw Drift Report[/bold cyan]",
-        border_style="cyan"
-    ))
+    console.print(
+        Panel.fit("[bold cyan]📈 SuperClaw Drift Report[/bold cyan]", border_style="cyan")
+    )
     console.print(f"  Baseline: [dim]{baseline}[/dim]")
     console.print(f"  Current: [dim]{current}[/dim]")
     console.print()
@@ -682,20 +564,14 @@ def report_drift(
 def scan_config(
     config: str = typer.Option(
         str(Path.home() / ".superclaw" / "config.yaml"),
-        "--config", "-c",
-        help="Path to superclaw config file"
+        "--config",
+        "-c",
+        help="Path to superclaw config file",
     ),
-    output: str | None = typer.Option(
-        None,
-        "--output", "-o",
-        help="Write JSON results to file"
-    ),
+    output: str | None = typer.Option(None, "--output", "-o", help="Write JSON results to file"),
 ):
     """Scan SuperClaw config for risky settings."""
-    console.print(Panel.fit(
-        "[bold cyan]🔍 SuperClaw Config Scan[/bold cyan]",
-        border_style="cyan"
-    ))
+    console.print(Panel.fit("[bold cyan]🔍 SuperClaw Config Scan[/bold cyan]", border_style="cyan"))
     console.print(f"  Config: [dim]{config}[/dim]")
     console.print()
 
@@ -739,22 +615,13 @@ def scan_config(
 
 @scan_app.command("skills")
 def scan_skills(
-    path: str = typer.Option(
-        ".",
-        "--path", "-p",
-        help="Path to skills/plugins directory"
-    ),
-    output: str | None = typer.Option(
-        None,
-        "--output", "-o",
-        help="Write JSON results to file"
-    ),
+    path: str = typer.Option(".", "--path", "-p", help="Path to skills/plugins directory"),
+    output: str | None = typer.Option(None, "--output", "-o", help="Write JSON results to file"),
 ):
     """Scan skills/plugins for supply-chain risks."""
-    console.print(Panel.fit(
-        "[bold cyan]🧪 SuperClaw Supply-Chain Scan[/bold cyan]",
-        border_style="cyan"
-    ))
+    console.print(
+        Panel.fit("[bold cyan]🧪 SuperClaw Supply-Chain Scan[/bold cyan]", border_style="cyan")
+    )
     console.print(f"  Path: [dim]{path}[/dim]")
     console.print()
 
@@ -891,6 +758,7 @@ safety:
 def version():
     """Show SuperClaw version."""
     from superclaw import __version__
+
     console.print(f"🦞 SuperClaw v{__version__}")
 
 
@@ -902,10 +770,7 @@ def version():
 @codeoptix_app.command("register")
 def codeoptix_register():
     """Register SuperClaw behaviors with CodeOptiX."""
-    console.print(Panel.fit(
-        "[bold cyan]📦 CodeOptiX Integration[/bold cyan]",
-        border_style="cyan"
-    ))
+    console.print(Panel.fit("[bold cyan]📦 CodeOptiX Integration[/bold cyan]", border_style="cyan"))
 
     try:
         from superclaw.codeoptix import register_superclaw_behaviors
@@ -919,11 +784,17 @@ def codeoptix_register():
         table.add_column("SuperClaw Behavior", style="yellow")
 
         for codeoptix_name, behavior_class in registered.items():
-            superclaw_name = behavior_class().name if hasattr(behavior_class, '__call__') else str(behavior_class)
+            superclaw_name = (
+                behavior_class().name
+                if hasattr(behavior_class, "__call__")
+                else str(behavior_class)
+            )
             table.add_row(codeoptix_name, superclaw_name)
 
         console.print(table)
-        console.print("\n[dim]Use these behaviors with: codeoptix eval --behaviors security-*[/dim]")
+        console.print(
+            "\n[dim]Use these behaviors with: codeoptix eval --behaviors security-*[/dim]"
+        )
 
     except RuntimeError as e:
         handle_error(str(e))
@@ -933,32 +804,22 @@ def codeoptix_register():
 
 @codeoptix_app.command("evaluate")
 def codeoptix_evaluate(
-    target: str = typer.Option(
-        "ws://127.0.0.1:18789",
-        "--target", "-t",
-        help="Agent target URL"
-    ),
+    target: str = typer.Option("ws://127.0.0.1:18789", "--target", "-t", help="Agent target URL"),
     behaviors: str = typer.Option(
-        "all",
-        "--behaviors", "-b",
-        help="Comma-separated behaviors to evaluate"
+        "all", "--behaviors", "-b", help="Comma-separated behaviors to evaluate"
     ),
     llm_provider: str = typer.Option(
         None,
-        "--llm-provider", "-l",
-        help="LLM provider for multi-modal evaluation (openai, anthropic, etc.)"
+        "--llm-provider",
+        "-l",
+        help="LLM provider for multi-modal evaluation (openai, anthropic, etc.)",
     ),
-    output: str | None = typer.Option(
-        None,
-        "--output", "-o",
-        help="Output file for results"
-    ),
+    output: str | None = typer.Option(None, "--output", "-o", help="Output file for results"),
 ):
     """Run CodeOptiX-style multi-modal security evaluation."""
-    console.print(Panel.fit(
-        "[bold cyan]🔬 CodeOptiX Security Evaluation[/bold cyan]",
-        border_style="cyan"
-    ))
+    console.print(
+        Panel.fit("[bold cyan]🔬 CodeOptiX Security Evaluation[/bold cyan]", border_style="cyan")
+    )
     console.print(f"  Target: [cyan]{target}[/cyan]")
     console.print(f"  Behaviors: [yellow]{behaviors}[/yellow]")
     if llm_provider:
@@ -1011,10 +872,12 @@ def codeoptix_status():
     # Check CodeOptiX
     try:
         import codeoptix
+
         version = getattr(codeoptix, "__version__", "unknown")
         console.print(f"[green]✓ CodeOptiX installed (v{version})[/green]")
 
         from codeoptix.behaviors import BEHAVIOR_REGISTRY
+
         console.print(f"  • {len(BEHAVIOR_REGISTRY)} behaviors available")
     except ImportError:
         console.print("[yellow]✗ CodeOptiX not installed[/yellow]")
@@ -1023,10 +886,12 @@ def codeoptix_status():
     # Check SuperClaw integration
     try:
         from superclaw.codeoptix import (
-            SuperClawBehaviorAdapter,
-            SecurityEvaluator,
             SecurityEvaluationEngine,
+            SecurityEvaluator,
+            SuperClawBehaviorAdapter,
         )
+
+        _ = (SecurityEvaluationEngine, SecurityEvaluator, SuperClawBehaviorAdapter)
         console.print("[green]✓ SuperClaw CodeOptiX integration ready[/green]")
     except ImportError as e:
         console.print(f"[red]✗ Integration module error: {e}[/red]")
@@ -1034,6 +899,8 @@ def codeoptix_status():
     # Check LLM availability
     try:
         from codeoptix.utils.llm import LLMProvider
+
+        _ = LLMProvider
         console.print("[green]✓ LLM providers available[/green]")
         console.print("  Providers: openai, anthropic, google, ollama")
     except ImportError:
@@ -1044,20 +911,21 @@ def codeoptix_status():
 
 def _display_codeoptix_results(result):
     """Display CodeOptiX evaluation results."""
-    from superclaw.codeoptix.engine import SecurityEngineResult
 
     # Overall status
     status_color = "green" if result.overall_passed else "red"
     status_text = "PASSED" if result.overall_passed else "FAILED"
 
-    console.print(Panel(
-        f"[bold {status_color}]Security Evaluation: {status_text}[/bold {status_color}]\n\n"
-        f"Overall Score: {result.overall_score:.1%}\n"
-        f"Scenarios Tested: {result.scenarios_tested}\n"
-        f"Scenarios Passed: {result.scenarios_passed}",
-        title="Results",
-        border_style=status_color,
-    ))
+    console.print(
+        Panel(
+            f"[bold {status_color}]Security Evaluation: {status_text}[/bold {status_color}]\n\n"
+            f"Overall Score: {result.overall_score:.1%}\n"
+            f"Scenarios Tested: {result.scenarios_tested}\n"
+            f"Scenarios Passed: {result.scenarios_passed}",
+            title="Results",
+            border_style=status_color,
+        )
+    )
 
     # Behavior details
     if result.behaviors:
@@ -1082,7 +950,11 @@ def _display_codeoptix_results(result):
             severity = f"[{sev_color}]{behavior_result.severity}[/{sev_color}]"
 
             static = behavior_result.static_analysis
-            static_info = f"{static.get('issue_count', 0)} issues" if static.get('status') == 'completed' else static.get('status', '-')
+            static_info = (
+                f"{static.get('issue_count', 0)} issues"
+                if static.get("status") == "completed"
+                else static.get("status", "-")
+            )
 
             table.add_row(name, status, score, severity, static_info)
 
@@ -1095,7 +967,7 @@ def _display_codeoptix_results(result):
         console.print(f"  Total: {summary.get('total_behaviors', 0)} behaviors")
         console.print(f"  [green]Passed: {summary.get('passed', 0)}[/green]")
         console.print(f"  [red]Failed: {summary.get('failed', 0)}[/red]")
-        if summary.get('critical', 0) > 0:
+        if summary.get("critical", 0) > 0:
             console.print(f"  [bold red]Critical: {summary.get('critical', 0)}[/bold red]")
 
 

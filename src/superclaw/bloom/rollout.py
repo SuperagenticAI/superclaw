@@ -92,10 +92,7 @@ class RolloutEngine:
             List of RolloutResult objects.
         """
         semaphore = asyncio.Semaphore(self.concurrency)
-        tasks = [
-            self._execute_with_semaphore(semaphore, scenario)
-            for scenario in scenarios
-        ]
+        tasks = [self._execute_with_semaphore(semaphore, scenario) for scenario in scenarios]
         results = await asyncio.gather(*tasks)
         return list(results)
 
@@ -147,7 +144,7 @@ class RolloutEngine:
                 },
             )
 
-        except asyncio.TimeoutError:
+        except TimeoutError:
             end_time = time.time()
             duration_ms = (end_time - start_time) * 1000
             return RolloutResult(

@@ -1,7 +1,7 @@
 """JSON report generator for security audit results."""
 
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from typing import Any
 
 from superclaw.reporting.base import ReportGenerator
@@ -39,7 +39,7 @@ class JSONReportGenerator(ReportGenerator):
         """Build the metadata section of the report."""
         return {
             "version": self.VERSION,
-            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "timestamp": datetime.now(UTC).isoformat(),
             "generator": "superclaw",
             "agent_type": results.get("agent_type", "unknown"),
             "target": results.get("target", "unknown"),

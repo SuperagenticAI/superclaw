@@ -2,15 +2,19 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from pathlib import Path
-from typing import Any, Iterable
 import json
 import re
-
+from collections.abc import Iterable
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any
 
 SUSPICIOUS_JS_PATTERNS = [
-    (re.compile(r"\bchild_process\.(exec|execSync|spawn|spawnSync)\b"), "exec_child_process", "medium"),
+    (
+        re.compile(r"\bchild_process\.(exec|execSync|spawn|spawnSync)\b"),
+        "exec_child_process",
+        "medium",
+    ),
     (re.compile(r"\beval\("), "eval_usage", "medium"),
     (re.compile(r"\bFunction\("), "function_constructor", "medium"),
     (re.compile(r"\bprocess\.env\b"), "env_access", "low"),
@@ -90,7 +94,10 @@ def _scan_package_json(path: Path) -> list[SupplyChainFinding]:
                 SupplyChainFinding(
                     rule="npm_install_script",
                     severity="high",
-                    message=f"package.json defines '{script_name}' script: {scripts.get(script_name)}",
+                    message=(
+                        f"package.json defines '{script_name}' script: "
+                        f"{scripts.get(script_name)}"
+                    ),
                     file=str(path),
                     line=None,
                 )

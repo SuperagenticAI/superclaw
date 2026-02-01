@@ -10,7 +10,6 @@ from urllib.parse import urlparse
 
 import yaml
 
-
 PRIVATE_NETWORKS = [
     ip_network("10.0.0.0/8"),
     ip_network("172.16.0.0/12"),
