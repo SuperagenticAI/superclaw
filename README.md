@@ -31,11 +31,65 @@
 
 ---
 
+## What is SuperClaw?
+
+SuperClaw is a pre-deployment security testing framework for AI coding agents. It systematically identifies vulnerabilities before your agents touch sensitive data or connect to external ecosystems.
+
+### 🎯 Scenario-Driven Testing
+
+Generate and execute adversarial scenarios against real agents with reproducible results.
+
+[Get started →](https://superagenticai.github.io/superclaw/getting-started/quickstart/)
+
+### 📋 Behavior Contracts
+
+Explicit success criteria, evidence extraction, and mitigation guidance for each security property.
+
+[Explore behaviors →](https://superagenticai.github.io/superclaw/architecture/behaviors/)
+
+### 📊 Evidence-First Reporting
+
+Reports include tool calls, outputs, and actionable fixes in HTML, JSON, or SARIF formats.
+
+[CI/CD integration →](https://superagenticai.github.io/superclaw/guides/ci-cd/)
+
+### 🛡️ Built-in Guardrails
+
+Local-only mode and authorization checks reduce misuse risk.
+
+[Safety guide →](https://superagenticai.github.io/superclaw/guides/safety/)
+
+## ⚠️ Security and Ethical Use
+
+### Authorized Testing Only
+
+SuperClaw is for authorized security testing only. Before using:
+
+- ✅ Obtain written permission to test the target system
+- ✅ Run tests in sandboxed or isolated environments
+- ✅ Treat automated findings as signals, not proof—verify manually
+
+**Guardrails enforced by default:**
+
+- Local-only mode blocks remote targets
+- Remote targets require `SUPERCLAW_AUTH_TOKEN`
+
+## Threat Model
+
+### OpenClaw + Moltbook Risk Surface
+
+OpenClaw agents often run with broad tool access. When connected to Moltbook or other agent networks, they can ingest untrusted, adversarial content that enables:
+
+- Prompt injection and hidden instruction attacks
+- Tool misuse and policy bypass
+- Behavioral drift over time
+- Cascading cross-agent exploitation
+
+SuperClaw evaluates these risks before deployment.
+
 ## Why SuperClaw?
 
 Autonomous AI agents are deployed with high privileges, mutable behavior, and exposure to untrusted inputs—often without structured security validation. This makes prompt injection, tool misuse, configuration drift, and data leakage likely but poorly understood until after exposure.
-
-**SuperClaw** is a pre-deployment, behavior-driven red-teaming framework that stress-tests your agents before they touch sensitive data or external ecosystems.
 
 ### What It Does
 
