@@ -3,7 +3,7 @@
 Break AI coding agents with CodeOptiX and Bloom.
 """
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __author__ = "Superagentic AI"
 
 from superclaw.attacks import ATTACK_REGISTRY

@@ -1,15 +1,16 @@
-<p align="center">
-  <a href="https://pypi.org/project/superclaw/"><img alt="PyPI" src="https://badge.fury.io/py/superclaw.svg" /></a>
-  <a href="https://github.com/SuperagenticAI/superclaw"><img alt="GitHub Repo" src="https://img.shields.io/badge/GitHub-superclaw-black?logo=github" /></a>
-  <a href="https://github.com/SuperagenticAI/superclaw/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/SuperagenticAI/superclaw/actions/workflows/ci.yml/badge.svg" /></a>
-  <a href="https://github.com/SuperagenticAI/superclaw/actions/workflows/docs.yml"><img alt="Docs" src="https://github.com/SuperagenticAI/superclaw/actions/workflows/docs.yml/badge.svg" /></a>
-  <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
-</p>
-
 # 🦞 SuperClaw
 
 <p align="center">
-  <img src="assets/superclaw_logo.png" alt="SuperClaw logo" width="220" />
+  <a href="https://pypi.org/project/superclaw/"><img alt="PyPI" src="https://img.shields.io/pypi/v/superclaw" /></a>
+  <a href="https://superagenticai.github.io/superclaw/"><img alt="Docs" src="https://img.shields.io/badge/Docs-online-brightgreen" /></a>
+  <a href="https://github.com/SuperagenticAI/superclaw"><img alt="GitHub Repo" src="https://img.shields.io/badge/GitHub-superclaw-black?logo=github" /></a>
+  <a href="https://github.com/SuperagenticAI/superclaw/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/SuperagenticAI/superclaw/actions/workflows/ci.yml/badge.svg" /></a>
+  <a href="https://github.com/SuperagenticAI/superclaw/actions/workflows/docs.yml"><img alt="Docs Build" src="https://github.com/SuperagenticAI/superclaw/actions/workflows/docs.yml/badge.svg" /></a>
+  <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/SuperagenticAI/superclaw/main/assets/superclaw_logo.png" alt="SuperClaw logo" width="220" />
 </p>
 
 <p align="center">
@@ -129,6 +130,10 @@ superclaw behaviors
 superclaw attacks
 superclaw init
 ```
+
+## Documentation
+
+Full documentation: https://superagenticai.github.io/superclaw/
 
 ## CodeOptiX Integration
 

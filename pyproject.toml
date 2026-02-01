@@ -1,9 +1,12 @@
 [project]
 name = "superclaw"
-version = "0.1.0"
-description = "Agent Security Testing Framework - Break AI coding agents with CodeOptiX and Bloom"
+version = "0.1.1"
+description = "Red-Team AI Agents Before They Red-Team You"
 authors = [
-    { name = "Superagentic AI", email = "team@super-agentic.ai" }
+    { name = "Shashi Jagtap", email = "info@super-agentic.ai" }
+]
+maintainers = [
+    { name = "Shashi Jagtap", email = "info@super-agentic.ai" }
 ]
 readme = "README.md"
 license = { text = "Apache-2.0" }

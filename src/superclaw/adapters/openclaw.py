@@ -169,7 +169,7 @@ class OpenClawAdapter(AgentAdapter):
             protocolVersion=1,
             clientInfo={
                 "name": "superclaw",
-                "version": "0.1.0",
+                "version": "0.1.1",
             },
         )
         if response and isinstance(response, dict) and response.get("error"):
