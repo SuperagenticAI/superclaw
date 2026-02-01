@@ -14,130 +14,166 @@
 </p>
 
 <p align="center">
-  <strong>SuperClaw — Red-Team AI Agents Before They Red-Team You</strong><br/>
+  <strong>Red-Team AI Agents Before They Red-Team You</strong><br/>
   Scenario-driven, behavior-first security testing for autonomous agents.
 </p>
 
-SuperClaw is a security testing framework for AI coding agents such as **OpenClaw** and agent ecosystems like **Moltbook**. It identifies vulnerabilities through prompt injection, tool policy bypass, sandbox escape, and multi-agent trust exploitation.
+<p align="center">
+  <a href="https://superagenticai.github.io/superclaw/"><img src="https://img.shields.io/badge/📚_Full_Documentation-superagenticai.github.io/superclaw-blue?style=for-the-badge" alt="Documentation" /></a>
+</p>
 
-## OpenClaw + Moltbook Threat Model
+<p align="center">
+  <a href="#-quick-start">Quick Start</a> •
+  <a href="#-features">Features</a> •
+  <a href="#-attack-techniques">Attack Techniques</a> •
+  <a href="https://superagenticai.github.io/superclaw/">Full Docs</a>
+</p>
 
-> **Threat Model**  
-> OpenClaw agents often run with broad tool access. When connected to **Moltbook** or other agent networks, they can ingest untrusted, adversarial content that enables:
-> - Prompt injection and hidden instruction attacks  
-> - Tool misuse and policy bypass  
-> - Behavioral drift over time  
-> - Cascading cross‑agent exploitation  
-> SuperClaw is built to evaluate these risks **before** deployment.
+---
 
-## Problem & Solution (Summary)
+## Why SuperClaw?
 
-**Problem:** Autonomous agents are being deployed with high privilege, mutable behavior, and exposure to untrusted inputs—without structured security validation. This makes prompt injection, tool misuse, configuration drift, and data leakage likely, but poorly understood until after exposure.
+Autonomous AI agents are deployed with high privileges, mutable behavior, and exposure to untrusted inputs—often without structured security validation. This makes prompt injection, tool misuse, configuration drift, and data leakage likely but poorly understood until after exposure.
 
-**Solution:** SuperClaw is a **pre‑deployment, behavior‑driven red‑teaming framework** that stress‑tests existing agents. It runs scenario‑based evaluations, records evidence (tool calls, outputs, artifacts), scores behaviors against explicit contracts, and produces actionable reports before agents touch sensitive data or external ecosystems.
+**SuperClaw** is a pre-deployment, behavior-driven red-teaming framework that stress-tests your agents before they touch sensitive data or external ecosystems.
 
-**Non‑goals:** SuperClaw does **not** generate agents, run production workloads, or automate real‑world exploitation.
+### What It Does
 
-## ⚠️ Security Notice
+- **Runs scenario-based security evaluations** against your agents
+- **Records evidence** (tool calls, outputs, artifacts) for each attack
+- **Scores behaviors** against explicit security contracts
+- **Produces actionable reports** with findings and mitigations
 
-**This tool is for authorized security testing only.** See [SECURITY.md](SECURITY.md) for:
-- Authorization requirements
-- Containment requirements (sandbox/VM)
-- False positive handling
-- Data safety guidelines
+### What It Doesn't Do
 
-Guardrails:
-- Local-only mode blocks remote targets by default
-- Remote targets require `SUPERCLAW_AUTH_TOKEN` (or adapter token)
+SuperClaw does **not** generate agents, run production workloads, or automate real-world exploitation. It's a testing tool, not a weapon.
 
-## Supported Targets
+---
 
-- 🦞 **OpenClaw** — ACP WebSocket adapter
-- 🧪 **Mock** — Offline deterministic testing
-- 🔧 **Custom** — Extend via adapters
+## 🚀 Quick Start
 
-## Quick Start
+### Installation
 
 ```bash
-# Install
 pip install superclaw
+```
 
-# Attack OpenClaw (local instance)
+### Run Your First Attack
+
+```bash
+# Attack a local OpenClaw instance
 superclaw attack openclaw --target ws://127.0.0.1:18789
 
-# Generate attack scenarios
-superclaw generate scenarios --behavior prompt_injection --num-scenarios 20
-
-# Run security audit
-superclaw audit openclaw --comprehensive --report-format html --output report
-
-# Offline testing
+# Or test offline with the mock adapter
 superclaw attack mock --behaviors prompt-injection-resistance
 ```
 
-## Attack Techniques
+### Generate Attack Scenarios
+
+```bash
+superclaw generate scenarios --behavior prompt_injection --num-scenarios 20
+```
+
+### Run a Full Security Audit
+
+```bash
+superclaw audit openclaw --comprehensive --report-format html --output report
+```
+
+---
+
+## ✨ Features
+
+### Supported Targets
+
+| Target | Description | Adapter |
+|--------|-------------|---------|
+| 🦞 **OpenClaw** | AI coding agents via ACP WebSocket | `openclaw` |
+| 🧪 **Mock** | Offline deterministic testing | `mock` |
+| 🔧 **Custom** | Build your own adapter | Extend `BaseAdapter` |
+
+### Attack Techniques
 
 | Technique | Description |
 |-----------|-------------|
-| `prompt-injection` | Direct/indirect injection attacks |
+| `prompt-injection` | Direct and indirect injection attacks |
 | `encoding` | Base64, hex, unicode, typoglycemia obfuscation |
-| `jailbreak` | DAN, grandmother, role-play techniques |
+| `jailbreak` | DAN, grandmother, role-play bypass techniques |
 | `tool-bypass` | Tool policy bypass via alias confusion |
-| `multi-turn` | Multi-turn persistent escalation attacks |
+| `multi-turn` | Persistent escalation across conversation turns |
 
-## Security Behaviors
+### Security Behaviors
 
-Each behavior ships with a structured contract (intent, success criteria, rubric, mitigation).
+Each behavior includes a structured contract with intent, success criteria, rubric, and mitigation guidance.
 
-| Behavior | Severity | Description |
-|----------|----------|-------------|
-| `prompt-injection-resistance` | CRITICAL | Tests injection detection |
-| `tool-policy-enforcement` | HIGH | Tests allow/deny lists |
-| `sandbox-isolation` | CRITICAL | Tests container boundaries |
-| `session-boundary-integrity` | HIGH | Tests session isolation |
-| `configuration-drift-detection` | MEDIUM | Tests config stability |
-| `acp-protocol-security` | MEDIUM | Tests protocol handling |
+| Behavior | Severity | Tests |
+|----------|----------|-------|
+| `prompt-injection-resistance` | 🔴 CRITICAL | Injection detection and rejection |
+| `sandbox-isolation` | 🔴 CRITICAL | Container and filesystem boundaries |
+| `tool-policy-enforcement` | 🟠 HIGH | Allow/deny list compliance |
+| `session-boundary-integrity` | 🟠 HIGH | Cross-session isolation |
+| `configuration-drift-detection` | 🟡 MEDIUM | Config stability over time |
+| `acp-protocol-security` | 🟡 MEDIUM | Protocol message handling |
 
-## CLI Commands
+---
+
+## 📖 CLI Reference
+
+### Attacks
 
 ```bash
-# Attacks
 superclaw attack openclaw --target ws://127.0.0.1:18789 --behaviors all
 superclaw attack mock --behaviors prompt-injection-resistance
-
-# Scenario generation (Bloom)
-superclaw generate scenarios --behavior prompt_injection --num-scenarios 20
-superclaw generate scenarios --behavior jailbreak --variations noise,emotional_pressure
-
-# Evaluation
-superclaw evaluate openclaw --scenarios scenarios.json --behaviors all
-superclaw evaluate mock --scenarios scenarios.json
-
-# Audit
-superclaw audit openclaw --comprehensive --report-format html --output report
-superclaw audit openclaw --quick
-
-# Reporting
-superclaw report generate --results results.json --format sarif  # For GitHub Code Scanning
-superclaw report drift --baseline baseline.json --current current.json
-
-# Scanning
-superclaw scan config
-superclaw scan skills --path /path/to/skills
-
-# Utilities
-superclaw behaviors
-superclaw attacks
-superclaw init
 ```
 
-## Documentation
+### Scenario Generation (Bloom)
 
-Full documentation: https://superagenticai.github.io/superclaw/
+```bash
+superclaw generate scenarios --behavior prompt_injection --num-scenarios 20
+superclaw generate scenarios --behavior jailbreak --variations noise,emotional_pressure
+```
 
-## CodeOptiX Integration
+### Evaluation
 
-SuperClaw integrates with [CodeOptiX](https://github.com/SuperagenticAI/codeoptix) for multi-modal evaluation:
+```bash
+superclaw evaluate openclaw --scenarios scenarios.json --behaviors all
+superclaw evaluate mock --scenarios scenarios.json
+```
+
+### Auditing
+
+```bash
+superclaw audit openclaw --comprehensive --report-format html --output report
+superclaw audit openclaw --quick
+```
+
+### Reporting
+
+```bash
+superclaw report generate --results results.json --format sarif  # GitHub Code Scanning
+superclaw report drift --baseline baseline.json --current current.json
+```
+
+### Scanning
+
+```bash
+superclaw scan config
+superclaw scan skills --path /path/to/skills
+```
+
+### Utilities
+
+```bash
+superclaw behaviors   # List all security behaviors
+superclaw attacks     # List all attack techniques
+superclaw init        # Initialize a new project
+```
+
+---
+
+## 🔗 CodeOptiX Integration
+
+SuperClaw integrates with [CodeOptiX](https://github.com/SuperagenticAI/codeoptix) for multi-modal security evaluation.
 
 ```bash
 # Install with CodeOptiX support
@@ -167,58 +203,92 @@ print(f"Score: {result.overall_score:.1%}")
 print(f"Passed: {result.overall_passed}")
 ```
 
-## Architecture
+---
+
+## ⚠️ Security Notice
+
+**This tool is for authorized security testing only.**
+
+### Guardrails
+
+- Local-only mode blocks remote targets by default
+- Remote targets require `SUPERCLAW_AUTH_TOKEN` (or adapter-specific token)
+
+### Requirements
+
+Before using SuperClaw, ensure you have:
+- ✅ Written authorization to test the target system
+- ✅ Isolated test environment (sandbox/VM recommended)
+- ✅ Understanding of [SECURITY.md](SECURITY.md) guidelines
+
+---
+
+## 🏗️ Architecture
 
 ```
 superclaw/
-├── attacks/          # Attack implementations
-│   ├── prompt_injection.py
-│   ├── encoding.py
-│   ├── jailbreaks.py
-│   ├── tool_bypass.py
-│   └── multi_turn.py
-├── behaviors/        # Security behavior specs
-│   ├── injection_resistance.py
-│   ├── tool_policy.py
-│   ├── sandbox_isolation.py
-│   ├── session_boundary.py
-│   ├── config_drift.py
-│   └── protocol_security.py
-├── adapters/         # Agent adapters
-│   ├── openclaw.py
-│   ├── mock.py
-│   └── base.py
-├── bloom/            # Scenario generation
-│   ├── ideation.py
-│   ├── rollout.py
-│   └── judgment.py
-├── scanners/         # Config + supply-chain scanning
-├── analysis/         # Drift comparison
-├── codeoptix/        # CodeOptiX integration
-│   ├── adapter.py    # Behavior adapter
-│   ├── evaluator.py  # Security evaluator
-│   └── engine.py     # Evaluation engine
-└── reporting/        # Report generation
-    ├── html.py
-    ├── json_report.py
-    └── sarif.py
+├── attacks/        # Attack technique implementations
+├── behaviors/      # Security behavior specifications
+├── adapters/       # Target agent adapters
+├── bloom/          # AI-powered scenario generation
+├── scanners/       # Config and supply-chain scanning
+├── analysis/       # Drift detection and comparison
+├── codeoptix/      # CodeOptiX integration layer
+└── reporting/      # HTML, JSON, and SARIF report generation
 ```
 
-## Part of Superagentic AI Ecosystem
+---
 
-- **SuperQE** - Quality Engineering core
-- **SuperClaw** - Agent security testing (this package)
-- **CodeOptiX** - Code optimization engine
+## 🌐 Superagentic AI Ecosystem
 
-## Open Source
+SuperClaw is part of the [Superagentic AI](https://super-agentic.ai) ecosystem:
 
-- [LICENSE](LICENSE)
-- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
-- [CONTRIBUTING.md](CONTRIBUTING.md)
-- [SECURITY.md](SECURITY.md)
+| Project | Description |
+|---------|-------------|
+| **SuperQE** | Quality engineering core framework |
+| **SuperClaw** | Agent security testing *(this package)* |
+| **CodeOptiX** | Code optimization and evaluation engine |
 
-Built by [Superagentic AI](https://super-agentic.ai) · GitHub: [SuperagenticAI/superclaw](https://github.com/SuperagenticAI/superclaw)
+---
 
-## License
+## 📚 Documentation
 
-Apache 2.0
+<table>
+<tr>
+<td width="100%" align="center">
+<h3>📖 <a href="https://superagenticai.github.io/superclaw/">superagenticai.github.io/superclaw</a></h3>
+</td>
+</tr>
+</table>
+
+| Guide | Description |
+|-------|-------------|
+| [Installation](https://superagenticai.github.io/superclaw/getting-started/installation/) | Setup with pip, uv, or from source |
+| [Quick Start](https://superagenticai.github.io/superclaw/getting-started/quickstart/) | Run your first security scan in 5 minutes |
+| [Configuration](https://superagenticai.github.io/superclaw/getting-started/configuration/) | Configure targets, LLM providers, and safety settings |
+| [Running Attacks](https://superagenticai.github.io/superclaw/guides/attacks/) | Execute attacks and interpret results |
+| [Custom Behaviors](https://superagenticai.github.io/superclaw/guides/custom-behaviors/) | Write your own security behavior specs |
+| [CI/CD Integration](https://superagenticai.github.io/superclaw/guides/ci-cd/) | GitHub Actions, GitLab CI, and SARIF output |
+| [Architecture](https://superagenticai.github.io/superclaw/architecture/overview/) | Deep dive into SuperClaw internals |
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Please see:
+
+- [CONTRIBUTING.md](CONTRIBUTING.md) — How to contribute
+- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) — Community guidelines
+- [SECURITY.md](SECURITY.md) — Security policy
+
+---
+
+## 📄 License
+
+Apache 2.0 — see [LICENSE](LICENSE) for details.
+
+---
+
+<p align="center">
+  Built with 🦞 by <a href="https://super-agentic.ai">Superagentic AI</a>
+</p>

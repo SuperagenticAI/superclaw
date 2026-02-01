@@ -20,86 +20,88 @@ hide:
 
 ---
 
-## ⚠️ Security and Ethical Use (Read First)
-
-SuperClaw is **for authorized security testing only**. You must:
-- Obtain explicit permission before testing real systems
-- Run tests in sandboxed or isolated environments
-- Treat automated findings as signals, not proof
-
-Guardrails:
-- Local-only mode blocks remote targets by default
-- Remote targets require `SUPERCLAW_AUTH_TOKEN` (or adapter token)
-
 ## What is SuperClaw?
 
-SuperClaw is a comprehensive security testing framework for AI coding agents such as **OpenClaw** and agent ecosystems like **Moltbook**. It systematically identifies vulnerabilities through:
+SuperClaw is a **pre-deployment security testing framework** for AI coding agents. It systematically identifies vulnerabilities before your agents touch sensitive data or connect to external ecosystems.
 
-- **Prompt Injection** - Direct and indirect injection attacks
-- **Tool Policy Bypass** - Alias confusion, group expansion exploits  
-- **Sandbox Escape** - Container boundary testing
-- **Multi-Agent Trust** - Inter-agent exploitation
+<div class="cards">
+  <div class="card">
+    <h3>🎯 Scenario-Driven Testing</h3>
+    <p>Generate and execute adversarial scenarios against real agents with reproducible results.</p>
+    <a href="getting-started/quickstart/">Get started →</a>
+  </div>
+  <div class="card">
+    <h3>📋 Behavior Contracts</h3>
+    <p>Explicit success criteria, evidence extraction, and mitigation guidance for each security property.</p>
+    <a href="architecture/behaviors/">Explore behaviors →</a>
+  </div>
+  <div class="card">
+    <h3>📊 Evidence-First Reporting</h3>
+    <p>Reports include tool calls, outputs, and actionable fixes in HTML, JSON, or SARIF formats.</p>
+    <a href="guides/ci-cd/">CI/CD integration →</a>
+  </div>
+  <div class="card">
+    <h3>🛡️ Built-in Guardrails</h3>
+    <p>Local-only mode and authorization checks reduce misuse risk.</p>
+    <a href="guides/safety/">Safety guide →</a>
+  </div>
+</div>
 
-## OpenClaw + Moltbook Threat Model
+---
 
-!!! warning "Threat Model"
+## ⚠️ Security and Ethical Use
+
+!!! warning "Authorized Testing Only"
+    SuperClaw is **for authorized security testing only**. Before using:
+    
+    - ✅ Obtain written permission to test the target system
+    - ✅ Run tests in sandboxed or isolated environments
+    - ✅ Treat automated findings as signals, not proof—verify manually
+
+**Guardrails enforced by default:**
+
+- Local-only mode blocks remote targets
+- Remote targets require `SUPERCLAW_AUTH_TOKEN`
+
+---
+
+## Threat Model
+
+!!! danger "OpenClaw + Moltbook Risk Surface"
     OpenClaw agents often run with broad tool access. When connected to **Moltbook** or other agent networks, they can ingest untrusted, adversarial content that enables:
 
-    - Prompt injection and hidden instruction attacks  
-    - Tool misuse and policy bypass  
-    - Behavioral drift over time  
-    - Cascading cross‑agent exploitation  
+    - **Prompt injection** and hidden instruction attacks  
+    - **Tool misuse** and policy bypass  
+    - **Behavioral drift** over time  
+    - **Cascading cross-agent** exploitation  
 
-    SuperClaw is built to evaluate these risks **before** deployment.
+    SuperClaw evaluates these risks **before** deployment.
 
-## Problem & Solution (Summary)
+### The Problem
 
-**Problem:** Agents are deployed with broad access, mutable behavior, and exposure to untrusted inputs, often without security validation. This leads to prompt injection, tool misuse, configuration drift, and data leakage discovered only after exposure.
+Autonomous agents are deployed with **high privilege**, **mutable behavior**, and **exposure to untrusted inputs**—often without structured security validation. This makes prompt injection, tool misuse, configuration drift, and data leakage likely but poorly understood until after exposure.
 
-**Solution:** SuperClaw performs **pre‑deployment, scenario‑driven security evaluation** of existing agents. It captures evidence (tool calls, outputs, artifacts), scores behavior against explicit contracts, and outputs actionable reports before agents touch sensitive data or external ecosystems.
+### The Solution
 
-**Non‑goals:** SuperClaw does **not** generate agents, run production workloads, or automate real‑world exploitation.
+SuperClaw performs **pre-deployment, scenario-driven security evaluation**:
 
-## Key Features
+1. **Generates** adversarial attack scenarios
+2. **Executes** them against your agent
+3. **Captures** evidence (tool calls, outputs, artifacts)
+4. **Scores** behavior against explicit contracts
+5. **Produces** actionable reports with mitigations
 
-| Feature | Description |
-|---------|-------------|
-| 🎯 **Attack Library** | 5 attack techniques with 100+ payloads |
-| 🔍 **Behavior Specs** | 6 security behaviors with severity levels |
-| 🌸 **Bloom Integration** | LLM-powered scenario generation |
-| 📊 **Multi-Format Reports** | HTML, JSON, SARIF for CI/CD |
-| 🔬 **CodeOptiX Integration** | Multi-modal evaluation pipeline |
+### Non-Goals
+
+SuperClaw does **not**:
+
+- Generate agents
+- Run production workloads
+- Automate real-world exploitation
+
+---
 
 ## Quick Start
-
-```bash
-# Install
-pip install superclaw
-
-# Or with uv
-uv pip install superclaw
-
-# Run a security scan
-superclaw attack openclaw --target ws://127.0.0.1:18789
-
-# Generate report
-superclaw audit openclaw --comprehensive --report-format html
-```
-
-## Part of Superagentic AI Ecosystem
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                  Superagentic AI Ecosystem                  │
-├─────────────────────────────────────────────────────────────┤
-│  SuperQE      │  Quality Engineering core engine            │
-│  SuperClaw    │  Agent security testing framework ◄── YOU   │
-│  CodeOptiX    │  Code optimization & evaluation engine      │
-│  Bloom        │  Behavioral evaluation scenario generation  │
-└─────────────────────────────────────────────────────────────┘
-```
-
-## Installation Options
 
 === "pip"
 
@@ -119,31 +121,100 @@ superclaw audit openclaw --comprehensive --report-format html
     pip install superclaw[codeoptix]
     ```
 
-## Next Steps
+Run your first attack:
 
-- [Installation Guide](getting-started/installation.md)
-- [Quick Start Tutorial](getting-started/quickstart.md)
-- [Architecture Overview](architecture/overview.md)
+```bash
+# Attack a local OpenClaw instance
+superclaw attack openclaw --target ws://127.0.0.1:18789
+
+# Or test offline with the mock adapter
+superclaw attack mock --behaviors prompt-injection-resistance
+
+# Generate a comprehensive audit report
+superclaw audit openclaw --comprehensive --report-format html
+```
+
+---
+
+## Key Features
+
+| Feature | Description |
+|---------|-------------|
+| 🎯 **Attack Library** | 5 attack techniques with 100+ payloads |
+| 🔍 **Behavior Specs** | 6 security behaviors with severity levels |
+| 🌸 **Bloom Integration** | LLM-powered scenario generation |
+| 📊 **Multi-Format Reports** | HTML, JSON, SARIF for CI/CD |
+| 🔬 **CodeOptiX Integration** | Multi-modal evaluation pipeline |
+
+### Supported Targets
+
+| Target | Adapter | Description |
+|--------|---------|-------------|
+| 🦞 **OpenClaw** | `openclaw` | AI coding agents via ACP WebSocket |
+| 🧪 **Mock** | `mock` | Offline deterministic testing |
+| 🔧 **Custom** | Extend `BaseAdapter` | Build your own adapter |
+
+### Attack Techniques
+
+| Technique | Description |
+|-----------|-------------|
+| `prompt-injection` | Direct and indirect injection attacks |
+| `encoding` | Base64, hex, unicode, typoglycemia obfuscation |
+| `jailbreak` | DAN, grandmother, role-play bypass techniques |
+| `tool-bypass` | Tool policy bypass via alias confusion |
+| `multi-turn` | Persistent escalation across conversation turns |
+
+### Security Behaviors
+
+| Behavior | Severity | Tests |
+|----------|----------|-------|
+| `prompt-injection-resistance` | 🔴 CRITICAL | Injection detection and rejection |
+| `sandbox-isolation` | 🔴 CRITICAL | Container and filesystem boundaries |
+| `tool-policy-enforcement` | 🟠 HIGH | Allow/deny list compliance |
+| `session-boundary-integrity` | 🟠 HIGH | Cross-session isolation |
+| `configuration-drift-detection` | 🟡 MEDIUM | Config stability over time |
+| `acp-protocol-security` | 🟡 MEDIUM | Protocol message handling |
+
+---
+
+## Superagentic AI Ecosystem
+
+SuperClaw is part of a comprehensive AI quality and security ecosystem:
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                  Superagentic AI Ecosystem                  │
+├─────────────────────────────────────────────────────────────┤
+│  SuperQE      │  Quality Engineering core engine            │
+│  SuperClaw    │  Agent security testing framework ◄── YOU   │
+│  CodeOptiX    │  Code optimization & evaluation engine      │
+│  Bloom        │  Behavioral evaluation scenario generation  │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Next Steps
 
 <div class="cards">
   <div class="card">
-    <h3>Scenario‑Driven Testing</h3>
-    <p>Generate adversarial scenarios and replay them against real agents.</p>
-    <a href="getting-started/quickstart/">Learn more →</a>
+    <h3>📦 Installation</h3>
+    <p>Get SuperClaw set up with pip, uv, or from source.</p>
+    <a href="getting-started/installation/">Install now →</a>
   </div>
   <div class="card">
-    <h3>Behavior Contracts</h3>
-    <p>Explicit success criteria, evidence extraction, and mitigation guidance.</p>
-    <a href="architecture/behaviors/">Explore behaviors →</a>
+    <h3>⚡ Quick Start</h3>
+    <p>Run your first security scan in under 5 minutes.</p>
+    <a href="getting-started/quickstart/">Quick start →</a>
   </div>
   <div class="card">
-    <h3>Evidence‑First Reporting</h3>
-    <p>Reports include tool calls, outputs, and actionable fixes.</p>
-    <a href="guides/attacks/">See reports →</a>
+    <h3>🏗️ Architecture</h3>
+    <p>Understand how SuperClaw works under the hood.</p>
+    <a href="architecture/overview/">Learn more →</a>
   </div>
   <div class="card">
-    <h3>Guardrails</h3>
-    <p>Local‑only mode and authorization checks to reduce misuse.</p>
-    <a href="guides/safety/">Safety guide →</a>
+    <h3>🔄 CI/CD</h3>
+    <p>Integrate security scanning into your pipeline.</p>
+    <a href="guides/ci-cd/">Set up CI/CD →</a>
   </div>
 </div>

@@ -1,14 +1,24 @@
 # Configuration
 
-## Initialize Config
+Configure SuperClaw for your environment and workflows.
+
+---
+
+## Initialize Configuration
+
+Create a configuration file with default settings:
 
 ```bash
 superclaw init
 ```
 
-Creates `~/.superclaw/config.yaml`.
+This creates `~/.superclaw/config.yaml`.
 
-## Config File Structure
+---
+
+## Configuration File
+
+### Full Example
 
 ```yaml
 # ~/.superclaw/config.yaml
@@ -21,26 +31,49 @@ llm:
   provider: "anthropic"  # openai, anthropic, google, ollama
   model: "claude-sonnet-4"
 
-# Logging
+# Logging configuration
 logging:
-  level: "INFO"
+  level: "INFO"           # DEBUG, INFO, WARNING, ERROR
   file: "~/.superclaw/superclaw.log"
 
-# Safety settings
+# Safety settings (guardrails)
 safety:
-  require_authorization: true
-  local_only: true
-  max_concurrent_attacks: 5
+  require_authorization: true   # Require token for remote targets
+  local_only: true              # Block non-localhost targets
+  max_concurrent_attacks: 5     # Limit parallel attack threads
 ```
+
+### Minimal Example
+
+```yaml
+# ~/.superclaw/config.yaml
+default_target: "ws://127.0.0.1:18789"
+```
+
+---
 
 ## Environment Variables
 
-| Variable | Description |
-|----------|-------------|
-| `SUPERCLAW_TARGET` | Default target URL |
-| `SUPERCLAW_LLM_PROVIDER` | LLM provider (openai, anthropic) |
-| `OPENAI_API_KEY` | OpenAI API key |
-| `ANTHROPIC_API_KEY` | Anthropic API key |
+Environment variables override config file settings:
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `SUPERCLAW_TARGET` | Default target URL | `ws://127.0.0.1:18789` |
+| `SUPERCLAW_AUTH_TOKEN` | Authorization token for remote targets | `your-secret-token` |
+| `SUPERCLAW_LLM_PROVIDER` | LLM provider for scenario generation | `openai`, `anthropic` |
+| `SUPERCLAW_LOG_LEVEL` | Logging verbosity | `DEBUG`, `INFO` |
+
+### LLM Provider API Keys
+
+For scenario generation with Bloom:
+
+| Provider | Environment Variable |
+|----------|---------------------|
+| OpenAI | `OPENAI_API_KEY` |
+| Anthropic | `ANTHROPIC_API_KEY` |
+| Google | `GOOGLE_API_KEY` |
+
+---
 
 ## LLM Provider Setup
 
@@ -48,12 +81,131 @@ safety:
 
 ```bash
 export OPENAI_API_KEY="sk-..."
+
+# Generate scenarios
 superclaw generate scenarios --behavior prompt_injection
+
+# CodeOptiX evaluation
+superclaw codeoptix evaluate --llm-provider openai
 ```
 
 ### Anthropic
 
 ```bash
 export ANTHROPIC_API_KEY="sk-ant-..."
+
+# Generate scenarios
+superclaw generate scenarios --behavior prompt_injection
+
+# CodeOptiX evaluation
 superclaw codeoptix evaluate --llm-provider anthropic
 ```
+
+### Ollama (Local)
+
+```bash
+# Start Ollama with a model
+ollama run llama3
+
+# Configure in config.yaml
+# llm:
+#   provider: "ollama"
+#   model: "llama3"
+```
+
+---
+
+## Safety Settings
+
+SuperClaw includes guardrails to prevent misuse.
+
+### Local-Only Mode (Default: Enabled)
+
+When enabled, only localhost targets are allowed:
+
+```yaml
+safety:
+  local_only: true
+```
+
+Allowed targets:
+- `ws://127.0.0.1:18789`
+- `ws://localhost:18789`
+
+Blocked targets:
+- `ws://remote-server.com:18789`
+- `ws://192.168.1.100:18789`
+
+### Authorization for Remote Targets
+
+To test remote targets, disable `local_only` and set an auth token:
+
+```yaml
+safety:
+  local_only: false
+  require_authorization: true
+```
+
+```bash
+export SUPERCLAW_AUTH_TOKEN="your-secret-token"
+superclaw attack openclaw --target ws://remote-server.com:18789
+```
+
+!!! warning "Remote Testing"
+    Only test remote systems with **explicit written authorization** from the system owner.
+
+---
+
+## Per-Command Configuration
+
+Override config settings via CLI flags:
+
+```bash
+# Override target
+superclaw attack openclaw --target ws://custom:18789
+
+# Override behaviors
+superclaw attack openclaw --behaviors prompt-injection-resistance,sandbox-isolation
+
+# Override output format
+superclaw audit openclaw --report-format sarif --output results
+```
+
+---
+
+## Scan Configuration
+
+Check your configuration for security issues:
+
+```bash
+superclaw scan config
+```
+
+This checks for:
+
+| Issue | Severity | Description |
+|-------|----------|-------------|
+| Public targets | HIGH | Non-localhost default targets |
+| Insecure WebSocket | MEDIUM | Using `ws://` instead of `wss://` |
+| Missing auth | HIGH | No authorization for remote targets |
+| Weak logging | LOW | Debug logging in production |
+| Missing LLM config | INFO | No LLM provider for Bloom |
+
+---
+
+## Configuration Precedence
+
+Settings are applied in this order (later overrides earlier):
+
+1. **Default values** — Built-in defaults
+2. **Config file** — `~/.superclaw/config.yaml`
+3. **Environment variables** — `SUPERCLAW_*`
+4. **CLI flags** — `--target`, `--behaviors`, etc.
+
+---
+
+## Next Steps
+
+- [Quick Start](quickstart.md) — Run your first attack
+- [Running Attacks](../guides/attacks.md) — Deep dive into attack options
+- [Safety Guide](../guides/safety.md) — Understand guardrails and ethical use
