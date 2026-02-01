@@ -109,7 +109,6 @@ nav:
     - 🔎 Scanning & Drift: guides/scanning.md
     - 🧩 Writing Custom Behaviors: guides/custom-behaviors.md
     - 🔄 CI/CD Integration: guides/ci-cd.md
-    - 🧪 SuperQode Integration: guides/superqode.md
   - 🧰 API Reference:
     - 💻 CLI: api/cli.md
     - 🎯 Attacks: api/attacks.md

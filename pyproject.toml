@@ -92,8 +92,6 @@ dev-dependencies = [
     "mkdocstrings-python>=1.10.0",
 ]
 
-[tool.uv.sources]
-codeoptix = { path = "../superqode/Ignore/codeoptix", editable = true }
 
 # ============================================================
 # Ruff Configuration

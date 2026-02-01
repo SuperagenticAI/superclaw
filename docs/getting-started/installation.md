@@ -43,14 +43,6 @@ pip install superclaw[docs]
 pip install superclaw[all]
 ```
 
-### From SuperQode
-
-If you have SuperQode installed:
-
-```bash
-pip install superqode[security]
-```
-
 ## Verify Installation
 
 ```bash

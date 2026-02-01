@@ -204,7 +204,6 @@ superclaw/
 
 ## Part of Superagentic AI Ecosystem
 
-- **SuperQode** - TUI interface for SuperQE
 - **SuperQE** - Quality Engineering core
 - **SuperClaw** - Agent security testing (this package)
 - **CodeOptiX** - Code optimization engine

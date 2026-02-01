@@ -92,7 +92,6 @@ superclaw audit openclaw --comprehensive --report-format html
 ┌─────────────────────────────────────────────────────────────┐
 │                  Superagentic AI Ecosystem                  │
 ├─────────────────────────────────────────────────────────────┤
-│  SuperQode    │  TUI interface for SuperQE, CI/automation  │
 │  SuperQE      │  Quality Engineering core engine            │
 │  SuperClaw    │  Agent security testing framework ◄── YOU   │
 │  CodeOptiX    │  Code optimization & evaluation engine      │
@@ -118,12 +117,6 @@ superclaw audit openclaw --comprehensive --report-format html
 
     ```bash
     pip install superclaw[codeoptix]
-    ```
-
-=== "From SuperQode"
-
-    ```bash
-    pip install superqode[security]
     ```
 
 ## Next Steps

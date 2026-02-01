@@ -24,7 +24,6 @@ flowchart TB
     
     subgraph Integration["Integrations"]
         H[CodeOptiX]
-        I[SuperQode]
         J[Reporting]
     end
     
@@ -37,7 +36,7 @@ flowchart TB
     C --> H
     D --> H
     H --> J
-    I --> A
+    %% External integrations removed
 ```
 
 ## Module Structure
@@ -194,15 +193,6 @@ from superclaw.codeoptix import register_superclaw_behaviors
 
 # Registers as 'security-prompt-injection-resistance', etc.
 register_superclaw_behaviors()
-```
-
-### SuperQode Integration
-
-SuperQode can invoke SuperClaw for security scanning:
-
-```bash
-superqode security scan --agent openclaw
-superqode security audit --comprehensive
 ```
 
 ### CI/CD Integration
