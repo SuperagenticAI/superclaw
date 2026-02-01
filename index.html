@@ -449,10 +449,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#security-and-ethical-use-read-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Security and Ethical Use (Read First)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#what-is-superclaw" class="md-nav__link">
     <span class="md-ellipsis">
       
         What is SuperClaw?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openclaw-moltbook-threat-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenClaw + Moltbook Threat Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problem-solution-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem &amp; Solution (Summary)
       
     </span>
   </a>
@@ -508,17 +541,6 @@
     <span class="md-ellipsis">
       
         Next Steps
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#security-and-ethical-use" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ⚠️ Security and Ethical Use
       
     </span>
   </a>
@@ -703,8 +725,6 @@
       
         
       
-        
-      
     
     
     
@@ -864,34 +884,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="architecture/roadmap/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    🗺️ MVP Roadmap
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -907,6 +899,12 @@
   
     
     
+      
+        
+      
+        
+      
+        
       
         
       
@@ -978,6 +976,90 @@
     
   
     🧨 Running Attacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="guides/problem-definition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📌 Problem Definition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="guides/safety/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🛡️ Safety & Guardrails
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="guides/scanning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🔎 Scanning & Drift
   
 
     
@@ -1322,10 +1404,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#security-and-ethical-use-read-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Security and Ethical Use (Read First)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#what-is-superclaw" class="md-nav__link">
     <span class="md-ellipsis">
       
         What is SuperClaw?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openclaw-moltbook-threat-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenClaw + Moltbook Threat Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problem-solution-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem &amp; Solution (Summary)
       
     </span>
   </a>
@@ -1387,17 +1502,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#security-and-ethical-use" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ⚠️ Security and Ethical Use
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1427,17 +1531,41 @@
 
 
 <h1 id="superclaw">🦞 SuperClaw<a class="headerlink" href="#superclaw" title="Permanent link">&para;</a></h1>
-<p><strong>SuperClaw — Red-Team AI Agents Before They Red-Team You</strong><br />
+<p><strong>SuperClaw: Red-Team AI Agents Before They Red-Team You</strong><br />
 Scenario-driven, behavior-first security testing for autonomous agents.</p>
 <hr />
+<h2 id="security-and-ethical-use-read-first">⚠️ Security and Ethical Use (Read First)<a class="headerlink" href="#security-and-ethical-use-read-first" title="Permanent link">&para;</a></h2>
+<p>SuperClaw is <strong>for authorized security testing only</strong>. You must:
+- Obtain explicit permission before testing real systems
+- Run tests in sandboxed or isolated environments
+- Treat automated findings as signals, not proof</p>
+<p>Guardrails:
+- Local-only mode blocks remote targets by default
+- Remote targets require <code>SUPERCLAW_AUTH_TOKEN</code> (or adapter token)</p>
 <h2 id="what-is-superclaw">What is SuperClaw?<a class="headerlink" href="#what-is-superclaw" title="Permanent link">&para;</a></h2>
-<p>SuperClaw is a comprehensive security testing framework for AI coding agents. It systematically identifies vulnerabilities through:</p>
+<p>SuperClaw is a comprehensive security testing framework for AI coding agents such as <strong>OpenClaw</strong> and agent ecosystems like <strong>Moltbook</strong>. It systematically identifies vulnerabilities through:</p>
 <ul>
 <li><strong>Prompt Injection</strong> - Direct and indirect injection attacks</li>
 <li><strong>Tool Policy Bypass</strong> - Alias confusion, group expansion exploits  </li>
 <li><strong>Sandbox Escape</strong> - Container boundary testing</li>
 <li><strong>Multi-Agent Trust</strong> - Inter-agent exploitation</li>
 </ul>
+<h2 id="openclaw-moltbook-threat-model">OpenClaw + Moltbook Threat Model<a class="headerlink" href="#openclaw-moltbook-threat-model" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Threat Model</p>
+<p>OpenClaw agents often run with broad tool access. When connected to <strong>Moltbook</strong> or other agent networks, they can ingest untrusted, adversarial content that enables:</p>
+<ul>
+<li>Prompt injection and hidden instruction attacks  </li>
+<li>Tool misuse and policy bypass  </li>
+<li>Behavioral drift over time  </li>
+<li>Cascading cross‑agent exploitation  </li>
+</ul>
+<p>SuperClaw is built to evaluate these risks <strong>before</strong> deployment.</p>
+</div>
+<h2 id="problem-solution-summary">Problem &amp; Solution (Summary)<a class="headerlink" href="#problem-solution-summary" title="Permanent link">&para;</a></h2>
+<p><strong>Problem:</strong> Agents are deployed with broad access, mutable behavior, and exposure to untrusted inputs, often without security validation. This leads to prompt injection, tool misuse, configuration drift, and data leakage discovered only after exposure.</p>
+<p><strong>Solution:</strong> SuperClaw performs <strong>pre‑deployment, scenario‑driven security evaluation</strong> of existing agents. It captures evidence (tool calls, outputs, artifacts), scores behavior against explicit contracts, and outputs actionable reports before agents touch sensitive data or external ecosystems.</p>
+<p><strong>Non‑goals:</strong> SuperClaw does <strong>not</strong> generate agents, run production workloads, or automate real‑world exploitation.</p>
 <h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1515,11 +1643,6 @@ Scenario-driven, behavior-first security testing for autonomous agents.</p>
 </div>
 </div>
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
-<h2 id="security-and-ethical-use">⚠️ Security and Ethical Use<a class="headerlink" href="#security-and-ethical-use" title="Permanent link">&para;</a></h2>
-<p>SuperClaw is <strong>for authorized security testing only</strong>. You must:
-- Obtain explicit permission before testing real systems
-- Run tests in sandboxed or isolated environments
-- Treat automated findings as signals, not proof</p>
 <ul>
 <li><a href="getting-started/installation/">Installation Guide</a></li>
 <li><a href="getting-started/quickstart/">Quick Start Tutorial</a></li>

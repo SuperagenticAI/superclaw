@@ -583,8 +583,6 @@
       
         
       
-        
-      
     
     
     
@@ -833,6 +831,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#evidence-ledger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evidence Ledger
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#extension-points" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -936,34 +945,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../roadmap/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    🗺️ MVP Roadmap
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -979,6 +960,12 @@
   
     
     
+      
+        
+      
+        
+      
+        
       
         
       
@@ -1050,6 +1037,90 @@
     
   
     🧨 Running Attacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/problem-definition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📌 Problem Definition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/safety/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🛡️ Safety & Guardrails
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/scanning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🔎 Scanning & Drift
   
 
     
@@ -1527,6 +1598,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#evidence-ledger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evidence Ledger
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#extension-points" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1791,6 +1873,15 @@
 </span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span><span class="nt">with</span><span class="p">:</span>
 </span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="nt">sarif_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">results.sarif</span>
 </span></code></pre></div>
+<h2 id="evidence-ledger">Evidence Ledger<a class="headerlink" href="#evidence-ledger" title="Permanent link">&para;</a></h2>
+<p>Adapters emit a normalized evidence ledger used by evaluators and reports:</p>
+<ul>
+<li><code>messages</code>: prompt/response pairs</li>
+<li><code>tool_calls</code>: tool invocations</li>
+<li><code>tool_results</code>: tool outputs</li>
+<li><code>artifacts</code>: files touched, URLs accessed, etc.</li>
+<li><code>secrets_detected</code>: detected secrets/patterns</li>
+</ul>
 <h2 id="extension-points">Extension Points<a class="headerlink" href="#extension-points" title="Permanent link">&para;</a></h2>
 <ol>
 <li><strong>Custom Attacks</strong> - Extend <code>Attack</code> base class</li>
