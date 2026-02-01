@@ -1149,3 +1149,119 @@ html {
   background-color: rgba(167, 139, 250, 0.1);
   border-color: #c4b5fd;
 }
+/* Home hero */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(120px, 200px) 1fr;
+  gap: 2rem;
+  align-items: center;
+  padding: 2.5rem 2rem;
+  margin: 1.5rem 0 2rem;
+  background: radial-gradient(1200px 400px at 20% -20%, #ffe6cc 0%, rgba(255, 230, 204, 0) 60%),
+              radial-gradient(800px 320px at 100% 0%, #ffd0c2 0%, rgba(255, 208, 194, 0) 60%),
+              linear-gradient(180deg, #fff8f2 0%, #fff 65%);
+  border: 1px solid #f0e0d6;
+  border-radius: 20px;
+}
+
+.hero__logo img {
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  display: block;
+}
+
+.hero__text h1 {
+  font-size: 2.6rem;
+  margin: 0 0 0.4rem;
+  letter-spacing: -0.02em;
+}
+
+.hero__tagline {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0 0 0.4rem;
+}
+
+.hero__subtitle {
+  font-size: 1rem;
+  color: #5d5d5d;
+  margin: 0 0 1rem;
+}
+
+.hero__cta {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.hero__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #ff6b35;
+  color: #fff;
+  padding: 0.55rem 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.hero__button--ghost {
+  background: transparent;
+  color: #ff6b35;
+  border: 1px solid #ff6b35;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.card {
+  border: 1px solid #f0e0d6;
+  border-radius: 14px;
+  padding: 1.1rem 1.2rem;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(30, 10, 0, 0.05);
+}
+
+.card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+}
+
+.card a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #ff6b35;
+}
+
+/* Gradient styling for inline command/code */
+code,
+tt,
+.md-typeset code {
+  background: linear-gradient(90deg, rgba(255, 120, 70, 0.12), rgba(170, 90, 255, 0.12));
+  border: 1px solid rgba(255, 120, 70, 0.25);
+}
+
+/* Gradient text for command snippets inside code fences */
+.md-typeset pre code {
+  background: transparent;
+  color: transparent;
+  background-image: linear-gradient(90deg, #ff6b35, #c768ff 45%, #ff5ea3 70%, #ffb347);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+  .hero__logo img {
+    max-width: 140px;
+  }
+}

@@ -1,7 +1,22 @@
-# 🦞 SuperClaw
+---
+hide:
+  - toc
+---
 
-**SuperClaw: Red-Team AI Agents Before They Red-Team You**  
-Scenario-driven, behavior-first security testing for autonomous agents.
+<div class="hero">
+  <div class="hero__logo">
+    <img src="assets/logo.png" alt="SuperClaw logo" />
+  </div>
+  <div class="hero__text">
+    <h1>SuperClaw</h1>
+    <p class="hero__tagline">Red‑Team AI Agents Before They Red‑Team You</p>
+    <p class="hero__subtitle">Scenario‑driven, behavior‑first security testing for autonomous agents.</p>
+    <div class="hero__cta">
+      <a class="hero__button" href="getting-started/quickstart/">Get Started</a>
+      <a class="hero__button hero__button--ghost" href="guides/attacks/">Run Your First Attack</a>
+    </div>
+  </div>
+</div>
 
 ---
 
@@ -116,3 +131,26 @@ superclaw audit openclaw --comprehensive --report-format html
 - [Installation Guide](getting-started/installation.md)
 - [Quick Start Tutorial](getting-started/quickstart.md)
 - [Architecture Overview](architecture/overview.md)
+
+<div class="cards">
+  <div class="card">
+    <h3>Scenario‑Driven Testing</h3>
+    <p>Generate adversarial scenarios and replay them against real agents.</p>
+    <a href="getting-started/quickstart/">Learn more →</a>
+  </div>
+  <div class="card">
+    <h3>Behavior Contracts</h3>
+    <p>Explicit success criteria, evidence extraction, and mitigation guidance.</p>
+    <a href="architecture/behaviors/">Explore behaviors →</a>
+  </div>
+  <div class="card">
+    <h3>Evidence‑First Reporting</h3>
+    <p>Reports include tool calls, outputs, and actionable fixes.</p>
+    <a href="guides/attacks/">See reports →</a>
+  </div>
+  <div class="card">
+    <h3>Guardrails</h3>
+    <p>Local‑only mode and authorization checks to reduce misuse.</p>
+    <a href="guides/safety/">Safety guide →</a>
+  </div>
+</div>
