@@ -12,13 +12,13 @@
         <meta name="author" content="Superagentic AI">
       
       
-        <link rel="canonical" href="https://superagenticai.github.io/superclaw/getting-started/configuration/">
+        <link rel="canonical" href="https://superagenticai.github.io/superclaw/api/cli/">
       
       
-        <link rel="prev" href="../quickstart/">
+        <link rel="prev" href="../../guides/ci-cd/">
       
       
-        <link rel="next" href="../../architecture/overview/">
+        <link rel="next" href="../attacks/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>⚙️ Configuration - SuperClaw Documentation</title>
+        <title>💻 CLI - SuperClaw Documentation</title>
       
     
     
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#configuration" class="md-skip">
+        <a href="#cli-reference" class="md-skip">
           Skip to content
         </a>
       
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ⚙️ Configuration
+              💻 CLI
             
           </span>
         </div>
@@ -248,13 +248,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../installation/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../getting-started/installation/" class="md-tabs__link">
           
   
   
@@ -316,11 +314,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../api/cli/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -415,10 +415,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -432,22 +430,21 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   
@@ -465,7 +462,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -483,7 +480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../installation/" class="md-nav__link">
+      <a href="../../getting-started/installation/" class="md-nav__link">
         
   
   
@@ -511,7 +508,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../quickstart/" class="md-nav__link">
+      <a href="../../getting-started/quickstart/" class="md-nav__link">
         
   
   
@@ -536,37 +533,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    ⚙️ Configuration
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../getting-started/configuration/" class="md-nav__link">
         
   
   
@@ -582,237 +552,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#initialize-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Initialize Configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration File
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration File">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#full-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Full Example
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#minimal-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Minimal Example
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#environment-variables" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Environment Variables
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Environment Variables">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#llm-provider-api-keys" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LLM Provider API Keys
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#llm-provider-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LLM Provider Setup
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="LLM Provider Setup">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#openai" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OpenAI
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#anthropic" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Anthropic
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ollama-local" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ollama (Local)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#safety-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Safety Settings
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Safety Settings">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#local-only-mode-default-enabled" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Local-Only Mode (Default: Enabled)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#authorization-for-remote-targets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Authorization for Remote Targets
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#per-command-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Per-Command Configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#scan-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scan Configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration-precedence" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration Precedence
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Next Steps
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1255,8 +994,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -1274,21 +1015,22 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -1306,7 +1048,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1321,10 +1063,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../api/cli/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    💻 CLI
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1340,6 +1109,164 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#global-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Global Options
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        attack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        generate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        evaluate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        audit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codeoptix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        codeoptix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utility-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Utility Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exit-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exit Codes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1352,7 +1279,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/attacks/" class="md-nav__link">
+      <a href="../attacks/" class="md-nav__link">
         
   
   
@@ -1380,7 +1307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/behaviors/" class="md-nav__link">
+      <a href="../behaviors/" class="md-nav__link">
         
   
   
@@ -1408,7 +1335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/adapters/" class="md-nav__link">
+      <a href="../adapters/" class="md-nav__link">
         
   
   
@@ -1436,7 +1363,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/codeoptix/" class="md-nav__link">
+      <a href="../codeoptix/" class="md-nav__link">
         
   
   
@@ -1491,10 +1418,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#initialize-configuration" class="md-nav__link">
+  <a href="#global-options" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Initialize Configuration
+        Global Options
       
     </span>
   </a>
@@ -1502,22 +1429,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration-file" class="md-nav__link">
+  <a href="#commands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuration File
+        Commands
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Configuration File">
+    <nav class="md-nav" aria-label="Commands">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#full-example" class="md-nav__link">
+  <a href="#attack" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Full Example
+        attack
       
     </span>
   </a>
@@ -1525,10 +1452,76 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#minimal-example" class="md-nav__link">
+  <a href="#generate" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Minimal Example
+        generate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        evaluate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        audit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codeoptix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        codeoptix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utility-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Utility Commands
       
     </span>
   </a>
@@ -1537,6 +1530,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exit-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exit Codes
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1545,156 +1549,6 @@
     <span class="md-ellipsis">
       
         Environment Variables
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Environment Variables">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#llm-provider-api-keys" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LLM Provider API Keys
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#llm-provider-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LLM Provider Setup
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="LLM Provider Setup">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#openai" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OpenAI
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#anthropic" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Anthropic
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ollama-local" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ollama (Local)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#safety-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Safety Settings
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Safety Settings">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#local-only-mode-default-enabled" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Local-Only Mode (Default: Enabled)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#authorization-for-remote-targets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Authorization for Remote Targets
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#per-command-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Per-Command Configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#scan-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scan Configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration-precedence" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration Precedence
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Next Steps
       
     </span>
   </a>
@@ -1744,10 +1598,10 @@
     
     
       <li class="md-path__item">
-        <a href="../installation/" class="md-path__link">
+        <a href="./" class="md-path__link">
           
   <span class="md-ellipsis">
-    🚀 Getting Started
+    🧰 API Reference
   </span>
 
         </a>
@@ -1769,226 +1623,445 @@
   
 
 
-<h1 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h1>
-<p>Configure SuperClaw for your environment and workflows.</p>
+<h1 id="cli-reference">CLI Reference<a class="headerlink" href="#cli-reference" title="Permanent link">&para;</a></h1>
+<p>Complete command-line interface reference for SuperClaw.</p>
 <hr />
-<h2 id="initialize-configuration">Initialize Configuration<a class="headerlink" href="#initialize-configuration" title="Permanent link">&para;</a></h2>
-<p>Create a configuration file with default settings:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>superclaw<span class="w"> </span>init
+<h2 id="global-options">Global Options<a class="headerlink" href="#global-options" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>superclaw<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>COMMAND<span class="w"> </span><span class="o">[</span>ARGS<span class="o">]</span>
 </span></code></pre></div>
-<p>This creates <code>~/.superclaw/config.yaml</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--version</code></td>
+<td>Show version and exit</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show help message</td>
+</tr>
+</tbody>
+</table>
 <hr />
-<h2 id="configuration-file">Configuration File<a class="headerlink" href="#configuration-file" title="Permanent link">&para;</a></h2>
-<h3 id="full-example">Full Example<a class="headerlink" href="#full-example" title="Permanent link">&para;</a></h3>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># ~/.superclaw/config.yaml</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Default target for attacks</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nt">default_target</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ws://127.0.0.1:18789&quot;</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1"># LLM settings for Bloom scenario generation</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nt">llm</span><span class="p">:</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;anthropic&quot;</span><span class="w">  </span><span class="c1"># openai, anthropic, google, ollama</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;claude-sonnet-4&quot;</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="c1"># Logging configuration</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="nt">logging</span><span class="p">:</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;INFO&quot;</span><span class="w">           </span><span class="c1"># DEBUG, INFO, WARNING, ERROR</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;~/.superclaw/superclaw.log&quot;</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="c1"># Safety settings (guardrails)</span>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="nt">safety</span><span class="p">:</span>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">  </span><span class="nt">require_authorization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">   </span><span class="c1"># Require token for remote targets</span>
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">  </span><span class="nt">local_only</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">              </span><span class="c1"># Block non-localhost targets</span>
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">  </span><span class="nt">max_concurrent_attacks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w">     </span><span class="c1"># Limit parallel attack threads</span>
+<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
+<h3 id="attack">attack<a class="headerlink" href="#attack" title="Permanent link">&para;</a></h3>
+<p>Run security attacks against an agent.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>superclaw<span class="w"> </span>attack<span class="w"> </span>&lt;adapter&gt;<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
 </span></code></pre></div>
-<h3 id="minimal-example">Minimal Example<a class="headerlink" href="#minimal-example" title="Permanent link">&para;</a></h3>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># ~/.superclaw/config.yaml</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">default_target</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ws://127.0.0.1:18789&quot;</span>
+<p><strong>Arguments:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>adapter</code></td>
+<td>Target adapter: <code>openclaw</code>, <code>mock</code>, <code>acp</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Options:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--target</code></td>
+<td>Target URL</td>
+<td>Config default</td>
+</tr>
+<tr>
+<td><code>--behaviors</code></td>
+<td>Comma-separated behaviors to test</td>
+<td><code>all</code></td>
+</tr>
+<tr>
+<td><code>--techniques</code></td>
+<td>Comma-separated attack techniques</td>
+<td><code>all</code></td>
+</tr>
+<tr>
+<td><code>--output</code></td>
+<td>Save results to file</td>
+<td>None</td>
+</tr>
+<tr>
+<td><code>--dry-run</code></td>
+<td>Preview without executing</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>--timeout</code></td>
+<td>Attack timeout in seconds</td>
+<td><code>30</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Basic attack</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>superclaw<span class="w"> </span>attack<span class="w"> </span>openclaw<span class="w"> </span>--target<span class="w"> </span>ws://127.0.0.1:18789
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Specific behaviors</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>superclaw<span class="w"> </span>attack<span class="w"> </span>openclaw<span class="w"> </span>--behaviors<span class="w"> </span>prompt-injection-resistance,sandbox-isolation
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Save results</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>superclaw<span class="w"> </span>attack<span class="w"> </span>openclaw<span class="w"> </span>--output<span class="w"> </span>results.json
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># Dry run</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>superclaw<span class="w"> </span>attack<span class="w"> </span>openclaw<span class="w"> </span>--dry-run
 </span></code></pre></div>
+<hr />
+<h3 id="generate">generate<a class="headerlink" href="#generate" title="Permanent link">&para;</a></h3>
+<p>Generate attack scenarios using Bloom.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>superclaw<span class="w"> </span>generate<span class="w"> </span>scenarios<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</span></code></pre></div>
+<p><strong>Options:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--behavior</code></td>
+<td>Behavior to generate scenarios for</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code>--num-scenarios</code></td>
+<td>Number of scenarios to generate</td>
+<td><code>10</code></td>
+</tr>
+<tr>
+<td><code>--variations</code></td>
+<td>Comma-separated variations</td>
+<td>None</td>
+</tr>
+<tr>
+<td><code>--output</code></td>
+<td>Save scenarios to file</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Generate prompt injection scenarios</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>superclaw<span class="w"> </span>generate<span class="w"> </span>scenarios<span class="w"> </span>--behavior<span class="w"> </span>prompt_injection<span class="w"> </span>--num-scenarios<span class="w"> </span><span class="m">20</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># With variations</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>superclaw<span class="w"> </span>generate<span class="w"> </span>scenarios<span class="w"> </span>--behavior<span class="w"> </span>jailbreak<span class="w"> </span>--variations<span class="w"> </span>noise,emotional_pressure
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># Save to file</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>superclaw<span class="w"> </span>generate<span class="w"> </span>scenarios<span class="w"> </span>--behavior<span class="w"> </span>prompt_injection<span class="w"> </span>--output<span class="w"> </span>scenarios.json
+</span></code></pre></div>
+<hr />
+<h3 id="evaluate">evaluate<a class="headerlink" href="#evaluate" title="Permanent link">&para;</a></h3>
+<p>Evaluate an agent against pre-generated scenarios.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>superclaw<span class="w"> </span>evaluate<span class="w"> </span>&lt;adapter&gt;<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</span></code></pre></div>
+<p><strong>Options:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--scenarios</code></td>
+<td>Path to scenarios file</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code>--behaviors</code></td>
+<td>Behaviors to evaluate</td>
+<td><code>all</code></td>
+</tr>
+<tr>
+<td><code>--output</code></td>
+<td>Save results to file</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>superclaw<span class="w"> </span>evaluate<span class="w"> </span>openclaw<span class="w"> </span>--scenarios<span class="w"> </span>scenarios.json<span class="w"> </span>--behaviors<span class="w"> </span>all
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>superclaw<span class="w"> </span>evaluate<span class="w"> </span>mock<span class="w"> </span>--scenarios<span class="w"> </span>scenarios.json
+</span></code></pre></div>
+<hr />
+<h3 id="audit">audit<a class="headerlink" href="#audit" title="Permanent link">&para;</a></h3>
+<p>Run a comprehensive security audit.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>superclaw<span class="w"> </span>audit<span class="w"> </span>&lt;adapter&gt;<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</span></code></pre></div>
+<p><strong>Options:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--target</code></td>
+<td>Target URL</td>
+<td>Config default</td>
+</tr>
+<tr>
+<td><code>--quick</code></td>
+<td>Quick audit (critical behaviors only)</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>--comprehensive</code></td>
+<td>Full audit (all behaviors)</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>--report-format</code></td>
+<td>Output format: <code>html</code>, <code>json</code>, <code>sarif</code></td>
+<td><code>json</code></td>
+</tr>
+<tr>
+<td><code>--output</code></td>
+<td>Output file path</td>
+<td><code>audit-report</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Quick audit</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>superclaw<span class="w"> </span>audit<span class="w"> </span>openclaw<span class="w"> </span>--quick
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Comprehensive with HTML report</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>superclaw<span class="w"> </span>audit<span class="w"> </span>openclaw<span class="w"> </span>--comprehensive<span class="w"> </span>--report-format<span class="w"> </span>html<span class="w"> </span>--output<span class="w"> </span>report
+</span></code></pre></div>
+<hr />
+<h3 id="report">report<a class="headerlink" href="#report" title="Permanent link">&para;</a></h3>
+<p>Generate and analyze reports.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>superclaw<span class="w"> </span>report<span class="w"> </span>&lt;subcommand&gt;<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</span></code></pre></div>
+<p><strong>Subcommands:</strong></p>
+<h4 id="generate_1">generate<a class="headerlink" href="#generate_1" title="Permanent link">&para;</a></h4>
+<p>Generate a report from results.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>superclaw<span class="w"> </span>report<span class="w"> </span>generate<span class="w"> </span>--results<span class="w"> </span>&lt;file&gt;<span class="w"> </span>--format<span class="w"> </span>&lt;format&gt;
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--results</code></td>
+<td>Path to results JSON file</td>
+</tr>
+<tr>
+<td><code>--format</code></td>
+<td>Output format: <code>html</code>, <code>json</code>, <code>sarif</code></td>
+</tr>
+<tr>
+<td><code>--output</code></td>
+<td>Output file path</td>
+</tr>
+</tbody>
+</table>
+<h4 id="drift">drift<a class="headerlink" href="#drift" title="Permanent link">&para;</a></h4>
+<p>Compare two runs for regressions.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>superclaw<span class="w"> </span>report<span class="w"> </span>drift<span class="w"> </span>--baseline<span class="w"> </span>&lt;file&gt;<span class="w"> </span>--current<span class="w"> </span>&lt;file&gt;
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--baseline</code></td>
+<td>Path to baseline results</td>
+</tr>
+<tr>
+<td><code>--current</code></td>
+<td>Path to current results</td>
+</tr>
+<tr>
+<td><code>--output</code></td>
+<td>Output file path</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Generate SARIF for GitHub</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>superclaw<span class="w"> </span>report<span class="w"> </span>generate<span class="w"> </span>--results<span class="w"> </span>results.json<span class="w"> </span>--format<span class="w"> </span>sarif<span class="w"> </span>--output<span class="w"> </span>results.sarif
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># Drift detection</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>superclaw<span class="w"> </span>report<span class="w"> </span>drift<span class="w"> </span>--baseline<span class="w"> </span>baseline.json<span class="w"> </span>--current<span class="w"> </span>current.json
+</span></code></pre></div>
+<hr />
+<h3 id="scan">scan<a class="headerlink" href="#scan" title="Permanent link">&para;</a></h3>
+<p>Scan for security issues.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>superclaw<span class="w"> </span>scan<span class="w"> </span>&lt;subcommand&gt;<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</span></code></pre></div>
+<p><strong>Subcommands:</strong></p>
+<h4 id="config">config<a class="headerlink" href="#config" title="Permanent link">&para;</a></h4>
+<p>Scan SuperClaw configuration.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>superclaw<span class="w"> </span>scan<span class="w"> </span>config<span class="w"> </span><span class="o">[</span>--output<span class="w"> </span>&lt;file&gt;<span class="o">]</span>
+</span></code></pre></div>
+<h4 id="skills">skills<a class="headerlink" href="#skills" title="Permanent link">&para;</a></h4>
+<p>Scan agent skills/plugins for risky patterns.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>superclaw<span class="w"> </span>scan<span class="w"> </span>skills<span class="w"> </span>--path<span class="w"> </span>&lt;directory&gt;
+</span></code></pre></div>
+<p><strong>Examples:</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>superclaw<span class="w"> </span>scan<span class="w"> </span>config
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>superclaw<span class="w"> </span>scan<span class="w"> </span>skills<span class="w"> </span>--path<span class="w"> </span>/path/to/skills
+</span></code></pre></div>
+<hr />
+<h3 id="codeoptix">codeoptix<a class="headerlink" href="#codeoptix" title="Permanent link">&para;</a></h3>
+<p>CodeOptiX integration commands.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>superclaw<span class="w"> </span>codeoptix<span class="w"> </span>&lt;subcommand&gt;<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</span></code></pre></div>
+<p><strong>Subcommands:</strong></p>
+<h4 id="status">status<a class="headerlink" href="#status" title="Permanent link">&para;</a></h4>
+<p>Check CodeOptiX integration status.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>superclaw<span class="w"> </span>codeoptix<span class="w"> </span>status
+</span></code></pre></div>
+<h4 id="register">register<a class="headerlink" href="#register" title="Permanent link">&para;</a></h4>
+<p>Register SuperClaw behaviors with CodeOptiX.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>superclaw<span class="w"> </span>codeoptix<span class="w"> </span>register
+</span></code></pre></div>
+<h4 id="evaluate_1">evaluate<a class="headerlink" href="#evaluate_1" title="Permanent link">&para;</a></h4>
+<p>Run multi-modal security evaluation.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>superclaw<span class="w"> </span>codeoptix<span class="w"> </span>evaluate<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--target</code></td>
+<td>Target URL</td>
+<td>Config default</td>
+</tr>
+<tr>
+<td><code>--llm-provider</code></td>
+<td>LLM provider</td>
+<td><code>openai</code></td>
+</tr>
+<tr>
+<td><code>--behaviors</code></td>
+<td>Behaviors to evaluate</td>
+<td><code>all</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>superclaw<span class="w"> </span>codeoptix<span class="w"> </span>status
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>superclaw<span class="w"> </span>codeoptix<span class="w"> </span>register
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>superclaw<span class="w"> </span>codeoptix<span class="w"> </span>evaluate<span class="w"> </span>--target<span class="w"> </span>ws://127.0.0.1:18789<span class="w"> </span>--llm-provider<span class="w"> </span>anthropic
+</span></code></pre></div>
+<hr />
+<h3 id="utility-commands">Utility Commands<a class="headerlink" href="#utility-commands" title="Permanent link">&para;</a></h3>
+<h4 id="behaviors">behaviors<a class="headerlink" href="#behaviors" title="Permanent link">&para;</a></h4>
+<p>List all available security behaviors.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>superclaw<span class="w"> </span>behaviors
+</span></code></pre></div>
+<h4 id="attacks">attacks<a class="headerlink" href="#attacks" title="Permanent link">&para;</a></h4>
+<p>List all attack techniques.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>superclaw<span class="w"> </span>attacks
+</span></code></pre></div>
+<h4 id="init">init<a class="headerlink" href="#init" title="Permanent link">&para;</a></h4>
+<p>Initialize configuration file.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>superclaw<span class="w"> </span>init
+</span></code></pre></div>
+<p>Creates <code>~/.superclaw/config.yaml</code> with defaults.</p>
+<hr />
+<h2 id="exit-codes">Exit Codes<a class="headerlink" href="#exit-codes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0</code></td>
+<td>Success / All behaviors passed</td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td>Critical or high severity findings detected</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>Connection or runtime error</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h2>
-<p>Environment variables override config file settings:</p>
 <table>
 <thead>
 <tr>
 <th>Variable</th>
 <th>Description</th>
-<th>Example</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>SUPERCLAW_TARGET</code></td>
 <td>Default target URL</td>
-<td><code>ws://127.0.0.1:18789</code></td>
 </tr>
 <tr>
 <td><code>SUPERCLAW_AUTH_TOKEN</code></td>
 <td>Authorization token for remote targets</td>
-<td><code>your-secret-token</code></td>
 </tr>
 <tr>
 <td><code>SUPERCLAW_LLM_PROVIDER</code></td>
-<td>LLM provider for scenario generation</td>
-<td><code>openai</code>, <code>anthropic</code></td>
+<td>LLM provider for Bloom</td>
 </tr>
 <tr>
 <td><code>SUPERCLAW_LOG_LEVEL</code></td>
 <td>Logging verbosity</td>
-<td><code>DEBUG</code>, <code>INFO</code></td>
 </tr>
-</tbody>
-</table>
-<h3 id="llm-provider-api-keys">LLM Provider API Keys<a class="headerlink" href="#llm-provider-api-keys" title="Permanent link">&para;</a></h3>
-<p>For scenario generation with Bloom:</p>
-<table>
-<thead>
 <tr>
-<th>Provider</th>
-<th>Environment Variable</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>OpenAI</td>
 <td><code>OPENAI_API_KEY</code></td>
+<td>OpenAI API key</td>
 </tr>
 <tr>
-<td>Anthropic</td>
 <td><code>ANTHROPIC_API_KEY</code></td>
-</tr>
-<tr>
-<td>Google</td>
-<td><code>GOOGLE_API_KEY</code></td>
+<td>Anthropic API key</td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="llm-provider-setup">LLM Provider Setup<a class="headerlink" href="#llm-provider-setup" title="Permanent link">&para;</a></h2>
-<h3 id="openai">OpenAI<a class="headerlink" href="#openai" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">OPENAI_API_KEY</span><span class="o">=</span><span class="s2">&quot;sk-...&quot;</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># Generate scenarios</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>superclaw<span class="w"> </span>generate<span class="w"> </span>scenarios<span class="w"> </span>--behavior<span class="w"> </span>prompt_injection
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1"># CodeOptiX evaluation</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>superclaw<span class="w"> </span>codeoptix<span class="w"> </span>evaluate<span class="w"> </span>--llm-provider<span class="w"> </span>openai
-</span></code></pre></div>
-<h3 id="anthropic">Anthropic<a class="headerlink" href="#anthropic" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ANTHROPIC_API_KEY</span><span class="o">=</span><span class="s2">&quot;sk-ant-...&quot;</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># Generate scenarios</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>superclaw<span class="w"> </span>generate<span class="w"> </span>scenarios<span class="w"> </span>--behavior<span class="w"> </span>prompt_injection
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1"># CodeOptiX evaluation</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>superclaw<span class="w"> </span>codeoptix<span class="w"> </span>evaluate<span class="w"> </span>--llm-provider<span class="w"> </span>anthropic
-</span></code></pre></div>
-<h3 id="ollama-local">Ollama (Local)<a class="headerlink" href="#ollama-local" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Start Ollama with a model</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>ollama<span class="w"> </span>run<span class="w"> </span>llama3
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Configure in config.yaml</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1"># llm:</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1">#   provider: &quot;ollama&quot;</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1">#   model: &quot;llama3&quot;</span>
-</span></code></pre></div>
-<hr />
-<h2 id="safety-settings">Safety Settings<a class="headerlink" href="#safety-settings" title="Permanent link">&para;</a></h2>
-<p>SuperClaw includes guardrails to prevent misuse.</p>
-<h3 id="local-only-mode-default-enabled">Local-Only Mode (Default: Enabled)<a class="headerlink" href="#local-only-mode-default-enabled" title="Permanent link">&para;</a></h3>
-<p>When enabled, only localhost targets are allowed:</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">safety</span><span class="p">:</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">local_only</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</span></code></pre></div>
-<p>Allowed targets:
-- <code>ws://127.0.0.1:18789</code>
-- <code>ws://localhost:18789</code></p>
-<p>Blocked targets:
-- <code>ws://remote-server.com:18789</code>
-- <code>ws://192.168.1.100:18789</code></p>
-<h3 id="authorization-for-remote-targets">Authorization for Remote Targets<a class="headerlink" href="#authorization-for-remote-targets" title="Permanent link">&para;</a></h3>
-<p>To test remote targets, disable <code>local_only</code> and set an auth token:</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">safety</span><span class="p">:</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">local_only</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">require_authorization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</span></code></pre></div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">SUPERCLAW_AUTH_TOKEN</span><span class="o">=</span><span class="s2">&quot;your-secret-token&quot;</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>superclaw<span class="w"> </span>attack<span class="w"> </span>openclaw<span class="w"> </span>--target<span class="w"> </span>ws://remote-server.com:18789
-</span></code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Remote Testing</p>
-<p>Only test remote systems with <strong>explicit written authorization</strong> from the system owner.</p>
-</div>
-<hr />
-<h2 id="per-command-configuration">Per-Command Configuration<a class="headerlink" href="#per-command-configuration" title="Permanent link">&para;</a></h2>
-<p>Override config settings via CLI flags:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Override target</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>superclaw<span class="w"> </span>attack<span class="w"> </span>openclaw<span class="w"> </span>--target<span class="w"> </span>ws://custom:18789
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># Override behaviors</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>superclaw<span class="w"> </span>attack<span class="w"> </span>openclaw<span class="w"> </span>--behaviors<span class="w"> </span>prompt-injection-resistance,sandbox-isolation
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1"># Override output format</span>
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>superclaw<span class="w"> </span>audit<span class="w"> </span>openclaw<span class="w"> </span>--report-format<span class="w"> </span>sarif<span class="w"> </span>--output<span class="w"> </span>results
-</span></code></pre></div>
-<hr />
-<h2 id="scan-configuration">Scan Configuration<a class="headerlink" href="#scan-configuration" title="Permanent link">&para;</a></h2>
-<p>Check your configuration for security issues:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>superclaw<span class="w"> </span>scan<span class="w"> </span>config
-</span></code></pre></div>
-<p>This checks for:</p>
-<table>
-<thead>
-<tr>
-<th>Issue</th>
-<th>Severity</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Public targets</td>
-<td>HIGH</td>
-<td>Non-localhost default targets</td>
-</tr>
-<tr>
-<td>Insecure WebSocket</td>
-<td>MEDIUM</td>
-<td>Using <code>ws://</code> instead of <code>wss://</code></td>
-</tr>
-<tr>
-<td>Missing auth</td>
-<td>HIGH</td>
-<td>No authorization for remote targets</td>
-</tr>
-<tr>
-<td>Weak logging</td>
-<td>LOW</td>
-<td>Debug logging in production</td>
-</tr>
-<tr>
-<td>Missing LLM config</td>
-<td>INFO</td>
-<td>No LLM provider for Bloom</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="configuration-precedence">Configuration Precedence<a class="headerlink" href="#configuration-precedence" title="Permanent link">&para;</a></h2>
-<p>Settings are applied in this order (later overrides earlier):</p>
-<ol>
-<li><strong>Default values</strong> — Built-in defaults</li>
-<li><strong>Config file</strong> — <code>~/.superclaw/config.yaml</code></li>
-<li><strong>Environment variables</strong> — <code>SUPERCLAW_*</code></li>
-<li><strong>CLI flags</strong> — <code>--target</code>, <code>--behaviors</code>, etc.</li>
-</ol>
-<hr />
-<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="../quickstart/">Quick Start</a> — Run your first attack</li>
-<li><a href="../../guides/attacks/">Running Attacks</a> — Deep dive into attack options</li>
-<li><a href="../../guides/safety/">Safety Guide</a> — Understand guardrails and ethical use</li>
-</ul>
 
 
 
@@ -2026,7 +2099,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../quickstart/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ⚡ Quick Start">
+          <a href="../../guides/ci-cd/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 🔄 CI/CD Integration">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2036,20 +2109,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                ⚡ Quick Start
+                🔄 CI/CD Integration
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../architecture/overview/" class="md-footer__link md-footer__link--next" aria-label="Next: 🧭 Overview">
+          <a href="../attacks/" class="md-footer__link md-footer__link--next" aria-label="Next: 🎯 Attacks">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                🧭 Overview
+                🎯 Attacks
               </div>
             </div>
             <div class="md-footer__button md-icon">
