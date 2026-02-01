@@ -1213,6 +1213,36 @@ html {
   border: 1px solid #ff6b35;
 }
 
+/* Dark mode hero */
+body[data-md-color-scheme="slate"] .hero {
+  background: radial-gradient(1200px 400px at 10% -20%, rgba(255, 107, 53, 0.18) 0%, rgba(255, 107, 53, 0) 60%),
+              radial-gradient(800px 320px at 100% 0%, rgba(255, 140, 0, 0.16) 0%, rgba(255, 140, 0, 0) 60%),
+              linear-gradient(180deg, #1b1622 0%, #16121b 65%);
+  border-color: #362a3f;
+}
+
+body[data-md-color-scheme="slate"] .hero__text h1 {
+  color: #f3e7ff;
+}
+
+body[data-md-color-scheme="slate"] .hero__tagline {
+  color: #ffe4d8;
+}
+
+body[data-md-color-scheme="slate"] .hero__subtitle {
+  color: #c9b7d6;
+}
+
+body[data-md-color-scheme="slate"] .hero__button {
+  background: #ff7a45;
+  color: #140f18;
+}
+
+body[data-md-color-scheme="slate"] .hero__button--ghost {
+  color: #ffd7c3;
+  border-color: #ff9b73;
+}
+
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
