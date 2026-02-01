@@ -220,6 +220,16 @@ SARIF output enables GitHub Code Scanning integration:
     sarif_file: results.sarif
 ```
 
+## Evidence Ledger
+
+Adapters emit a normalized evidence ledger used by evaluators and reports:
+
+- `messages`: prompt/response pairs
+- `tool_calls`: tool invocations
+- `tool_results`: tool outputs
+- `artifacts`: files touched, URLs accessed, etc.
+- `secrets_detected`: detected secrets/patterns
+
 ## Extension Points
 
 1. **Custom Attacks** - Extend `Attack` base class

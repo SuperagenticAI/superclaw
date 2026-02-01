@@ -41,6 +41,14 @@ Open `audit-report.html` in your browser to see the full security report.
 superclaw scan config
 ```
 
+## 8. Review Guardrails
+
+```bash
+# Enforced by default
+# - local_only: true
+# - require_authorization: true
+```
+
 ## Python API
 
 ```python

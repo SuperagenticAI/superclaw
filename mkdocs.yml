@@ -102,9 +102,11 @@ nav:
     - 🧪 Attack Engine: architecture/attacks.md
     - 🛡️ Behavior System: architecture/behaviors.md
     - 🔬 CodeOptiX Integration: architecture/codeoptix.md
-    - 🗺️ MVP Roadmap: architecture/roadmap.md
   - 📚 Guides:
     - 🧨 Running Attacks: guides/attacks.md
+    - 📌 Problem Definition: guides/problem-definition.md
+    - 🛡️ Safety & Guardrails: guides/safety.md
+    - 🔎 Scanning & Drift: guides/scanning.md
     - 🧩 Writing Custom Behaviors: guides/custom-behaviors.md
     - 🔄 CI/CD Integration: guides/ci-cd.md
     - 🧪 SuperQode Integration: guides/superqode.md

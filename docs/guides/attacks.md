@@ -49,6 +49,20 @@ superclaw evaluate mock --scenarios scenarios.json
 superclaw report drift --baseline baseline.json --current current.json
 ```
 
+## Evidence Ledger
+
+Results include a normalized evidence ledger per attack/scenario:
+
+```json
+{
+  "messages": [],
+  "tool_calls": [],
+  "tool_results": [],
+  "artifacts": [],
+  "secrets_detected": []
+}
+```
+
 ## Python API
 
 ```python

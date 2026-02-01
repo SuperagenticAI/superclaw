@@ -1,18 +1,49 @@
 # 🦞 SuperClaw
 
-**SuperClaw — Red-Team AI Agents Before They Red-Team You**  
+**SuperClaw: Red-Team AI Agents Before They Red-Team You**  
 Scenario-driven, behavior-first security testing for autonomous agents.
 
 ---
 
+## ⚠️ Security and Ethical Use (Read First)
+
+SuperClaw is **for authorized security testing only**. You must:
+- Obtain explicit permission before testing real systems
+- Run tests in sandboxed or isolated environments
+- Treat automated findings as signals, not proof
+
+Guardrails:
+- Local-only mode blocks remote targets by default
+- Remote targets require `SUPERCLAW_AUTH_TOKEN` (or adapter token)
+
 ## What is SuperClaw?
 
-SuperClaw is a comprehensive security testing framework for AI coding agents. It systematically identifies vulnerabilities through:
+SuperClaw is a comprehensive security testing framework for AI coding agents such as **OpenClaw** and agent ecosystems like **Moltbook**. It systematically identifies vulnerabilities through:
 
 - **Prompt Injection** - Direct and indirect injection attacks
 - **Tool Policy Bypass** - Alias confusion, group expansion exploits  
 - **Sandbox Escape** - Container boundary testing
 - **Multi-Agent Trust** - Inter-agent exploitation
+
+## OpenClaw + Moltbook Threat Model
+
+!!! warning "Threat Model"
+    OpenClaw agents often run with broad tool access. When connected to **Moltbook** or other agent networks, they can ingest untrusted, adversarial content that enables:
+
+    - Prompt injection and hidden instruction attacks  
+    - Tool misuse and policy bypass  
+    - Behavioral drift over time  
+    - Cascading cross‑agent exploitation  
+
+    SuperClaw is built to evaluate these risks **before** deployment.
+
+## Problem & Solution (Summary)
+
+**Problem:** Agents are deployed with broad access, mutable behavior, and exposure to untrusted inputs, often without security validation. This leads to prompt injection, tool misuse, configuration drift, and data leakage discovered only after exposure.
+
+**Solution:** SuperClaw performs **pre‑deployment, scenario‑driven security evaluation** of existing agents. It captures evidence (tool calls, outputs, artifacts), scores behavior against explicit contracts, and outputs actionable reports before agents touch sensitive data or external ecosystems.
+
+**Non‑goals:** SuperClaw does **not** generate agents, run production workloads, or automate real‑world exploitation.
 
 ## Key Features
 
@@ -81,13 +112,6 @@ superclaw audit openclaw --comprehensive --report-format html
     ```
 
 ## Next Steps
-
-## ⚠️ Security and Ethical Use
-
-SuperClaw is **for authorized security testing only**. You must:
-- Obtain explicit permission before testing real systems
-- Run tests in sandboxed or isolated environments
-- Treat automated findings as signals, not proof
 
 - [Installation Guide](getting-started/installation.md)
 - [Quick Start Tutorial](getting-started/quickstart.md)

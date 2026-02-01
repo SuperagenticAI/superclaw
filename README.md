@@ -17,10 +17,28 @@
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
 </p>
 
-SuperClaw is a security testing framework for AI coding agents. It systematically identifies vulnerabilities through prompt injection, tool policy bypass, sandbox escape, and multi-agent trust exploitation attacks.
+SuperClaw is a security testing framework for AI coding agents such as **OpenClaw** and agent ecosystems like **Moltbook**. It identifies vulnerabilities through prompt injection, tool policy bypass, sandbox escape, and multi-agent trust exploitation.
 
 Built by [Superagentic AI](https://super-agentic.ai).  
 GitHub: [SuperagenticAI/superclaw](https://github.com/SuperagenticAI/superclaw)
+
+## OpenClaw + Moltbook Threat Model
+
+> **Threat Model**  
+> OpenClaw agents often run with broad tool access. When connected to **Moltbook** or other agent networks, they can ingest untrusted, adversarial content that enables:
+> - Prompt injection and hidden instruction attacks  
+> - Tool misuse and policy bypass  
+> - Behavioral drift over time  
+> - Cascading cross‑agent exploitation  
+> SuperClaw is built to evaluate these risks **before** deployment.
+
+## Problem & Solution (Summary)
+
+**Problem:** Autonomous agents are being deployed with high privilege, mutable behavior, and exposure to untrusted inputs—without structured security validation. This makes prompt injection, tool misuse, configuration drift, and data leakage likely, but poorly understood until after exposure.
+
+**Solution:** SuperClaw is a **pre‑deployment, behavior‑driven red‑teaming framework** that stress‑tests existing agents. It runs scenario‑based evaluations, records evidence (tool calls, outputs, artifacts), scores behaviors against explicit contracts, and produces actionable reports before agents touch sensitive data or external ecosystems.
+
+**Non‑goals:** SuperClaw does **not** generate agents, run production workloads, or automate real‑world exploitation.
 
 ## ⚠️ Security Notice
 
@@ -34,11 +52,11 @@ Guardrails:
 - Local-only mode blocks remote targets by default
 - Remote targets require `SUPERCLAW_AUTH_TOKEN` (or adapter token)
 
-## Supported Agents
+## Supported Targets
 
-- 🦞 **OpenClaw** - Full support via ACP WebSocket
-- 🧪 **Mock** - Offline deterministic testing
-- 🔧 **Custom Agents** - Via adapters (bring your own)
+- 🦞 **OpenClaw** — ACP WebSocket adapter
+- 🧪 **Mock** — Offline deterministic testing
+- 🔧 **Custom** — Extend via adapters
 
 ## Quick Start
 
@@ -85,7 +103,7 @@ Each behavior ships with a structured contract (intent, success criteria, rubric
 ## CLI Commands
 
 ```bash
-# Attack commands
+# Attacks
 superclaw attack openclaw --target ws://127.0.0.1:18789 --behaviors all
 superclaw attack mock --behaviors prompt-injection-resistance
 
@@ -97,7 +115,7 @@ superclaw generate scenarios --behavior jailbreak --variations noise,emotional_p
 superclaw evaluate openclaw --scenarios scenarios.json --behaviors all
 superclaw evaluate mock --scenarios scenarios.json
 
-# Security audit
+# Audit
 superclaw audit openclaw --comprehensive --report-format html --output report
 superclaw audit openclaw --quick
 
@@ -113,16 +131,11 @@ superclaw scan skills --path /path/to/skills
 superclaw behaviors
 superclaw attacks
 superclaw init
-
-# CodeOptiX Integration
-superclaw codeoptix status                      # Check integration status
-superclaw codeoptix register                    # Register behaviors with CodeOptiX
-superclaw codeoptix evaluate --llm-provider openai  # Multi-modal evaluation
 ```
 
 ## CodeOptiX Integration
 
-SuperClaw integrates with [CodeOptiX](https://github.com/SuperagenticAI/codeoptix) for multi-modal security evaluation:
+SuperClaw integrates with [CodeOptiX](https://github.com/SuperagenticAI/codeoptix) for multi-modal evaluation:
 
 ```bash
 # Install with CodeOptiX support
@@ -131,29 +144,22 @@ pip install superclaw[codeoptix]
 # Check integration status
 superclaw codeoptix status
 
-# Register SuperClaw behaviors with CodeOptiX
+# Register behaviors with CodeOptiX
 superclaw codeoptix register
 
-# Run multi-modal evaluation (static analysis + LLM-as-judge)
+# Run multi-modal evaluation
 superclaw codeoptix evaluate --target ws://127.0.0.1:18789 --llm-provider openai
 ```
 
 ### Python API
 
 ```python
-from superclaw.codeoptix import (
-    SecurityEvaluator,
-    SecurityEvaluationEngine,
-    adapt_behavior_to_codeoptix,
-    register_superclaw_behaviors,
-)
+from superclaw.codeoptix import SecurityEvaluationEngine
 from superclaw.adapters import create_adapter
 
-# Create adapter and engine
 adapter = create_adapter("openclaw", {"target": "ws://127.0.0.1:18789"})
 engine = SecurityEvaluationEngine(adapter)
 
-# Run evaluation
 result = engine.evaluate_security(behavior_names=["prompt-injection-resistance"])
 print(f"Score: {result.overall_score:.1%}")
 print(f"Passed: {result.overall_passed}")
