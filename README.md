@@ -1,3 +1,11 @@
+<p align="center">
+  <a href="https://pypi.org/project/superclaw/"><img alt="PyPI" src="https://badge.fury.io/py/superclaw.svg" /></a>
+  <a href="https://github.com/SuperagenticAI/superclaw"><img alt="GitHub Repo" src="https://img.shields.io/badge/GitHub-superclaw-black?logo=github" /></a>
+  <a href="https://github.com/SuperagenticAI/superclaw/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/SuperagenticAI/superclaw/actions/workflows/ci.yml/badge.svg" /></a>
+  <a href="https://github.com/SuperagenticAI/superclaw/actions/workflows/docs.yml"><img alt="Docs" src="https://github.com/SuperagenticAI/superclaw/actions/workflows/docs.yml/badge.svg" /></a>
+  <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
+</p>
+
 # 🦞 SuperClaw
 
 <p align="center">
@@ -9,18 +17,7 @@
   Scenario-driven, behavior-first security testing for autonomous agents.
 </p>
 
-<p align="center">
-  <a href="https://pypi.org/project/superclaw/"><img alt="PyPI" src="https://badge.fury.io/py/superclaw.svg" /></a>
-  <a href="https://github.com/SuperagenticAI/superclaw"><img alt="GitHub Repo" src="https://img.shields.io/badge/GitHub-superclaw-black?logo=github" /></a>
-  <a href="https://github.com/SuperagenticAI/superclaw/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/SuperagenticAI/superclaw/actions/workflows/ci.yml/badge.svg" /></a>
-  <a href="https://github.com/SuperagenticAI/superclaw/actions/workflows/docs.yml"><img alt="Docs" src="https://github.com/SuperagenticAI/superclaw/actions/workflows/docs.yml/badge.svg" /></a>
-  <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
-</p>
-
 SuperClaw is a security testing framework for AI coding agents such as **OpenClaw** and agent ecosystems like **Moltbook**. It identifies vulnerabilities through prompt injection, tool policy bypass, sandbox escape, and multi-agent trust exploitation.
-
-Built by [Superagentic AI](https://super-agentic.ai).  
-GitHub: [SuperagenticAI/superclaw](https://github.com/SuperagenticAI/superclaw)
 
 ## OpenClaw + Moltbook Threat Model
 
@@ -214,6 +211,8 @@ superclaw/
 - [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 - [CONTRIBUTING.md](CONTRIBUTING.md)
 - [SECURITY.md](SECURITY.md)
+
+Built by [Superagentic AI](https://super-agentic.ai) · GitHub: [SuperagenticAI/superclaw](https://github.com/SuperagenticAI/superclaw)
 
 ## License
 
