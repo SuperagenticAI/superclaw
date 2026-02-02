@@ -15,8 +15,19 @@ SuperClaw enforces two runtime guardrails by default:
 1. **Local-only mode**  
    Remote targets are blocked unless you explicitly allow them.
 
-2. **Authorization for remote targets**  
-   Remote targets require an auth token.
+### 2. Authorization Token
+
+For any target that is not `localhost` or `127.0.0.1`, SuperClaw requires an authorization token.
+
+> **Important:** SuperClaw does not create, manage, or validate the lifecycle of these tokens. The `SUPERCLAW_AUTH_TOKEN` is simply a credential pass-through. You are responsible for obtaining valid credentials from the administrator of the target system you are authorized to test.
+
+```bash
+# Set the token in your environment
+export SUPERCLAW_AUTH_TOKEN="your-token"
+
+# Run the attack
+superclaw attack openclaw --target ws://remote-server:18789
+```
 
 ### Configure Guardrails
 

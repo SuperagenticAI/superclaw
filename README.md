@@ -31,6 +31,12 @@
 
 ---
 
+## ⚠️ Security and Ethical Use
+
+### Authorized Testing Only
+
+SuperClaw is for authorized security testing only.
+
 ## What is SuperClaw?
 
 SuperClaw is a pre-deployment security testing framework for AI coding agents. It systematically identifies vulnerabilities before your agents touch sensitive data or connect to external ecosystems.
@@ -267,6 +273,7 @@ print(f"Passed: {result.overall_passed}")
 
 - Local-only mode blocks remote targets by default
 - Remote targets require `SUPERCLAW_AUTH_TOKEN` (or adapter-specific token)
+    - *Note: SuperClaw does not manage this token; you must obtain it from the remote system administrator.*
 
 ### Requirements
 
