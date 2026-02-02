@@ -964,6 +964,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2-authorization-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Authorization Token
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#configure-guardrails" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1353,6 +1364,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2-authorization-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Authorization Token
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#configure-guardrails" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1458,23 +1480,28 @@
 <h2 id="built-in-guardrails">Built-in Guardrails<a class="headerlink" href="#built-in-guardrails" title="Permanent link">&para;</a></h2>
 <p>SuperClaw enforces two runtime guardrails by default:</p>
 <ol>
-<li>
-<p><strong>Local-only mode</strong><br />
-   Remote targets are blocked unless you explicitly allow them.</p>
-</li>
-<li>
-<p><strong>Authorization for remote targets</strong><br />
-   Remote targets require an auth token.</p>
-</li>
+<li><strong>Local-only mode</strong><br />
+   Remote targets are blocked unless you explicitly allow them.</li>
 </ol>
+<h3 id="2-authorization-token">2. Authorization Token<a class="headerlink" href="#2-authorization-token" title="Permanent link">&para;</a></h3>
+<p>For any target that is not <code>localhost</code> or <code>127.0.0.1</code>, SuperClaw requires an authorization token.</p>
+<blockquote>
+<p><strong>Important:</strong> SuperClaw does not create, manage, or validate the lifecycle of these tokens. The <code>SUPERCLAW_AUTH_TOKEN</code> is simply a credential pass-through. You are responsible for obtaining valid credentials from the administrator of the target system you are authorized to test.</p>
+</blockquote>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Set the token in your environment</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">SUPERCLAW_AUTH_TOKEN</span><span class="o">=</span><span class="s2">&quot;your-token&quot;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Run the attack</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>superclaw<span class="w"> </span>attack<span class="w"> </span>openclaw<span class="w"> </span>--target<span class="w"> </span>ws://remote-server:18789
+</span></code></pre></div>
 <h3 id="configure-guardrails">Configure Guardrails<a class="headerlink" href="#configure-guardrails" title="Permanent link">&para;</a></h3>
 <p>In <code>~/.superclaw/config.yaml</code>:</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">safety</span><span class="p">:</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">require_authorization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">local_only</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">safety</span><span class="p">:</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">require_authorization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">local_only</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </span></code></pre></div>
 <p>Set a token for remote testing:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">SUPERCLAW_AUTH_TOKEN</span><span class="o">=</span><span class="s2">&quot;your-token&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">SUPERCLAW_AUTH_TOKEN</span><span class="o">=</span><span class="s2">&quot;your-token&quot;</span>
 </span></code></pre></div>
 <h2 id="false-positives">False Positives<a class="headerlink" href="#false-positives" title="Permanent link">&para;</a></h2>
 <p>Scenario generation can produce plausible but unrealistic exploits. Always:
